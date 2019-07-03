@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.login-form-container {
+    background-image: image_url("background_gradient.png")
+}

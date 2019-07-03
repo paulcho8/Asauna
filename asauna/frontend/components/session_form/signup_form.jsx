@@ -2,7 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+
+class SignupForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -21,7 +22,7 @@ class SessionForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = Object.assign({}, this.state);
-		this.props.login(user);
+		this.props.signup(user);
 	}
 
 	renderErrors() {
@@ -40,17 +41,25 @@ class SessionForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Login
+					Sign Up
           <br />
 					{this.renderErrors()}
 					<div className="login-form">
+						<br />
+						<label>Name:
+              <input type="text"
+								value={this.state.name}
+								onChange={this.update('name')}
+								className="login-input"
+							/>
+						</label>
 						<br />
 						<label>Email:
               <input type="text"
 								value={this.state.email}
 								onChange={this.update('email')}
 								className="login-input"
-								/>
+							/>
 						</label>
 						<br />
 						<label>Password:
@@ -58,17 +67,18 @@ class SessionForm extends React.Component {
 								value={this.state.password}
 								onChange={this.update('password')}
 								className="login-input"
-								/>
+							/>
 						</label>
 						<br />
-						<input className="session-submit" type="submit" value="Log In"/>
-						<br/>
-						Don't have an account? <Link to={`/signup`}>Sign Up</Link>
+						<input className="session-submit" type="submit" value="Sign Up" />
+						<br />
 					</div>
 				</form>
+				<Link to={`/login`}>Login</Link>
 			</div>
 		);
 	}
 }
 
-export default withRouter(SessionForm);
+
+export default withRouter(SignupForm);
