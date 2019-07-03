@@ -1,0 +1,144 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to top right, 
+    rgba(255, 82, 99, 0.9) 10%, 
+    rgba(255, 115, 129, 0.9) 65%, 
+    rgba(252, 189, 1, 0.9) 125%);
+    min-height: 100vh;
+    text-align: center;
+    overflow: auto;
+    
+}
+.dialog--header {
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 15px;
+    flex-shrink: 0;
+    margin: -10px 0 30px -5px
+}
+
+.dialog--container {
+    width: 585px;
+    height: 600px;
+    flex-shrink: 0;
+    margin: 0 auto;
+}
+
+.dialog--content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    line-height: 1.5;
+}
+
+.dialog--content .title {
+    color: #151b26;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    padding: 45px 30px 30px;
+    text-transform: none; 
+    text-align: center;
+}
+
+.dialog--footer {
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.dialog--form {
+    padding: 0 90px;
+    padding-bottom: 35px;
+    height: inherit;
+}
+
+
+.errors--container .errors--content {
+    background-color: #ffedef;
+    border-radius: 4px;
+    clear: both;
+    color: #222b37;
+    line-height: 2.5;
+    text-align: center;
+    height: 44px;
+    list-style: none;
+}
+
+.form-input {
+    margin-top: 30px;
+    text-align: left;
+    font-size: 100%;
+    font-family: inherit;
+}
+
+.form-input label {
+    color: #848f99;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.form-input input {
+    line-height: normal;
+    background-color: #fff;
+    border: 1px solid #d5dce0;
+    border-radius: 4px;
+    color: #151b26;
+    height: 40px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    width: 100%;
+}
+
+.form-input--button {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.buttonView.buttonView--primary:not(.is-disabled){
+    background-color: #14aaf5;
+    border-color: #14aaf5;
+    color: #fff;
+    fill: #fff;
+}
+
+.buttonView.buttonView--large {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.buttonView {
+    transition: background 200ms, border 200ms, box-shadow 200ms, color 200ms;
+    align-items: center;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 13px;
+    justify-content: center;
+    min-width: 50px;
+    text-align: center;
+    transition-duration: .2s;
+    transition-property: background, border, box-shadow, color;
+}
