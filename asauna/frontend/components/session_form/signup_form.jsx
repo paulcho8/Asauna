@@ -10,7 +10,7 @@ class SignupForm extends React.Component {
 			username: '',
 			password: ''
 		};
-		this.handleClick = this.handleClick.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentWillUnmount(){
@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
 		});
 	}
 
-	handleClick(e) {
+	handleSubmit(e) {
 		e.preventDefault();
 		const user = Object.assign({}, this.state);
 		this.props.signup(user);
@@ -49,34 +49,34 @@ class SignupForm extends React.Component {
 				</div>
 				<div className="dialog--container">
 					<div className="dialog--content">
-						<form className="dialog--form">
+						<form className="dialog--form" onSubmit={this.handleSubmit}>
 							<h1 className="title">Sign Up</h1>
 							<div className="alert--error">
 								{this.renderErrors()}
 							</div>
 							<div className="form-input">
 								<label>Name</label>
-									<input type="text"
+									<input className="input" type="name"
 										value={this.state.name}
 										onChange={this.update('name')}
 									/>
 							</div>
 							<div className="form-input">
 								<label>Email Address</label>
-									<input type="text"
+									<input className="input" type="email"
 										value={this.state.email}
 										onChange={this.update('email')}
 									/>
 							</div>
 							<div className="form-input">
 								<label>Password</label>
-									<input type="password"
+									<input className="input" type="password"
 										value={this.state.password}
 										onChange={this.update('password')}
 									/>
 							</div>
 							<div className="form-input form-input--button">
-								<button onClick={this.handleClick} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit">
+								<button className="buttonView buttonView--default buttonView--primary buttonView--large button-submit">
 									<span>Sign Up</span>
 								</button>
 							</div>
