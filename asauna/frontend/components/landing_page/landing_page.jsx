@@ -8,8 +8,11 @@ class Splash extends React.Component {
     render () {
         return (
             <div>
-                hello
+                Splash coming soon! ^_^
+                <br/>
                 <Link to={`/login`}>Log In</Link>
+                &nbsp;
+                &nbsp;
                 <Link to={`/signup`}>Sign Up</Link>
             </div>
         )
