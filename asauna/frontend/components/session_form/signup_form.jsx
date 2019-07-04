@@ -14,7 +14,7 @@ class SignupForm extends React.Component {
 	}
 
 	componentWillUnmount(){
-		this.props.clearErrors();
+		this.props.removeErrors();
 	}
 
 	update(field) {
@@ -83,7 +83,10 @@ class SignupForm extends React.Component {
 						</form>
 					</div>
 				<div className="dialog--footer">
-					Already have an account? <Link to={`/login`}>Login</Link>
+					<span>Already have an account? </span>
+					<button>
+						<Link className="buttonView buttonView--default buttonView--background" to={`/login`}>Login</Link>
+					</button>
 				</div>
 				</div>
 			</div>
@@ -92,4 +95,4 @@ class SignupForm extends React.Component {
 }
 
 
-export default withRouter(SignupForm);
+export default SignupForm;

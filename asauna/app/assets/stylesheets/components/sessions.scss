@@ -13,16 +13,20 @@
     rgba(255, 82, 99, 0.9) 10%, 
     rgba(255, 115, 129, 0.9) 65%, 
     rgba(252, 189, 1, 0.9) 125%);
+    // background: linear-gradient(to top right, 
+    // rgb(242, 106, 165) 10%, 
+    // rgba(238,174,202,1) 65%, 
+    // rgb(195, 214, 237) 125%);
+    // background: radial-gradient(circle, rgba(238,174,202,1) 75%, rgba(148,187,233,1) 125%);
     min-height: 100vh;
     text-align: center;
     overflow: auto;
-    
 }
 .dialog--header {
     text-align: center;
     color: #fff;
     font-size: 36px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin-top: 15px;
     flex-shrink: 0;
     margin: -10px 0 30px -5px
@@ -36,7 +40,7 @@
 }
 
 .dialog--content {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
@@ -45,7 +49,7 @@
 
 .dialog--content .title {
     color: #151b26;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;
@@ -57,8 +61,12 @@
 .dialog--footer {
     margin-top: 15px;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
+}
+
+.dialog--footer span {
+   font-size: 14px;
+   font-family: 'Poppins', sans-serif;
+   color: #fff;
 }
 
 .dialog--form {
@@ -88,7 +96,7 @@
 
 .form-input label {
     color: #848f99;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 500;
     display: block;
@@ -97,6 +105,9 @@
 
 .form-input input {
     line-height: normal;
+}
+
+.form-input input, .form-input select, .form-input textarea {
     background-color: #fff;
     border: 1px solid #d5dce0;
     border-radius: 4px;
@@ -105,6 +116,12 @@
     margin: 0;
     padding: 0 0 0 10px;
     width: 100%;
+    font-size: 14px;
+}
+
+.form-input textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: #b1b1b1;
+    outline: 0 none;
 }
 
 .form-input--button {
@@ -118,12 +135,67 @@
     color: #fff;
     fill: #fff;
 }
+.buttonView.buttonView--primary:not(.is-disabled):hover {
+    background-color: #008ce3;
+    border-color: #008ce3;
+}
 
 .buttonView.buttonView--large {
     height: 40px;
     line-height: 40px;
     padding: 0 15px;
 }
+
+
+.buttonView--default[disabled].buttonView--primary, 
+.buttonView--default[disabled]:hover.buttonView--primary, 
+.buttonView--default[disabled]:active.buttonView--primary, 
+.buttonView--default[disabled]:focus.buttonView--primary {
+    background: #edf1f2;
+    border: 1px solid #e0e6e0e8;
+    color: #b7bfc6;
+}
+
+.buttonView--default[disabled], 
+.buttonView--default[disabled]:hover, 
+.buttonView--default[disabled]:active, 
+.buttonView--default[disabled]:focus {
+    box-shadow: none;
+    color: #b7bfc6;
+    cursor: default;
+    fill: #b7bfc6
+}
+
+
+.buttonView--default.buttonView--background {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.buttonView--default.buttonView--background:hover {
+    background-color: #fff;
+    border-color: #fff;
+    text-decoration: none;
+    color: #8c8d8e;
+}
+
+// .dialog--footer .buttonView {
+//     margin-left: 10px;
+// }
+
+.dialog--footer button {
+    color: #fff;
+}
+
+.buttonView.buttonView--default {
+    height: 32px;
+    line-height: 30px;
+    padding: 0 10px;
+    margin-left: 10px;
+}
+
 
 .buttonView {
     transition: background 200ms, border 200ms, box-shadow 200ms, color 200ms;

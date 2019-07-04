@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
@@ -10,10 +9,24 @@ class SessionForm extends React.Component {
 			password: ''
 		};
 		this.handleClick = this.handleClick.bind(this);
+		this.demoLogin = this.demoLogin.bind(this);
+	}
+
+	demoLogin(e) {
+		e.preventDefault();
+
+		const demoUser = {
+			email: 'demo@asauna.com',
+			password: 'demouser'
+		};
+		
+		this.setState({ email: demoUser.email})
+		this.setState({ password: demoUser.password})
+		this.props.login(demoUser)
 	}
 
 	componentWillUnmount() {
-		this.props.clearErrors();
+		this.props.removeErrors();
 	}
 
 	update(field) {
@@ -68,14 +81,21 @@ class SessionForm extends React.Component {
 										/>
 							</div>
 							<div className="form-input form-input--button">
-								<button onClick={this.handleClick} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit">
+								<button onClick={this.demoLogin} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" >
+									<span>Demo Login</span>
+								</button>
+
+								<button onClick={this.handleClick} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" disabled={!this.state.email}>
 									<span>Log In</span>
 								</button>
 							</div>
 						</form>
 					</div>
 				<div className="dialog--footer">
-					Don't have an account? <Link to={`/signup`}>Sign Up</Link>
+					<span>Don't have an account?</span> 
+						<button>
+							<Link className="buttonView buttonView--default buttonView--background" to={`/signup`}>Sign Up</Link>
+						</button>
 				</div>
 				</div>
 			</div>
@@ -83,4 +103,4 @@ class SessionForm extends React.Component {
 	}
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;
