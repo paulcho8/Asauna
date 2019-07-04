@@ -12,6 +12,8 @@ const App = () => (
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <Route exact path="/home" component={HomeContainer} />
+        Splash will be here
+        <br/>
         <Link to={`/login`}>Log In</Link>
         &nbsp;
         &nbsp;
