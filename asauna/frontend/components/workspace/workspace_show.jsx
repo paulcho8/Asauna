@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Navbar from '../navbar/navbar';
+import Navbar from '../navbar/navbar_container';
 
 class WorkspaceShow extends React.Component {
 
@@ -12,6 +12,7 @@ class WorkspaceShow extends React.Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <Link to="/home">Workspace Index</Link>
             </div>
         );

@@ -17,9 +17,10 @@ class Navbar extends React.Component {
         this.props.logout(this.props.currentUser)
             .then(() => this.props.history.push('/login'))
     }
-    
+
             
     render() {
+        if (this.props.workspaces.length === 0) return null;
         let workspace = this.props.workspaces.map(workspace => {
             return (
                 <Workspace 
@@ -28,13 +29,16 @@ class Navbar extends React.Component {
             )
         })
 
+        let initials = this.props.currentUser.name.split(' ').map(word => (word[0])).join('')
+
         if (this.props.currentUser) {
             return(
-            <div>
+            <div className="Topbar--container">
+                <h1 className="Topbar--header">Home</h1>
                 <ul>
                     { workspace }
                 </ul>
-                <h2 className="header-name">Hi, {this.props.currentUser.name}!</h2>
+                <h2 className="Topbar--button">{initials}</h2>
                 <button className="header-button" onClick={this.logoutHandler}>Log Out</button>
             </div>
             )

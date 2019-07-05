@@ -1,0 +1,25 @@
+.Topbar--container {
+    display: flex;
+    flex-shrink: 0;
+    background: #fff;
+    align-items: center;
+}
+
+.Topbar--header {
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    align-items: center;
+    color: #151b26;
+    display: flex;
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Topbar--button {
+    align-items: center;
+}
