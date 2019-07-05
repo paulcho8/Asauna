@@ -8,16 +8,12 @@ import Splash from './landing_page/landing_page';
 
 const App = () => (
     <div>
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-        <Route exact path="/home" component={HomeContainer} />
-        <Route exact path="/" component={Splash} />
-        {/* Splash will be here
-        <br/>
-        <Link to={`/login`}>Log In</Link>
-        &nbsp;
-        &nbsp;
-        <Link to={`/signup`}>Sign Up</Link> */}
+        <Switch>
+            <AuthRoute path="/login" component={LogInFormContainer} />
+            <AuthRoute path="/signup" component={SignUpFormContainer} />
+            <Route path="/home" component={HomeContainer} />
+            <AuthRoute path="/" component={Splash} />
+        </Switch>
     </div>
 );
 

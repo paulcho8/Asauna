@@ -177,7 +177,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_workspace_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/workspace_api_util */ "./frontend/util/workspace_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -202,6 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 
+  window.fetchWorkspace = _util_workspace_api_util__WEBPACK_IMPORTED_MODULE_4__["fetchWorkspace"];
+  window.getState = store.getState;
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
@@ -235,23 +239,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    exact: true,
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     path: "/login",
     component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
-    exact: true,
     path: "/signup",
     component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
     path: "/home",
     component: _home_home_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     path: "/",
     component: _landing_page_landing_page__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(App));
@@ -1146,6 +1146,42 @@ var logout = function logout() {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/workspace_api_util.js":
+/*!*********************************************!*\
+  !*** ./frontend/util/workspace_api_util.js ***!
+  \*********************************************/
+/*! exports provided: createWorkspace, fetchWorkspace, updateWorkspace */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createWorkspace", function() { return createWorkspace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchWorkspace", function() { return fetchWorkspace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateWorkspace", function() { return updateWorkspace; });
+var createWorkspace = function createWorkspace(workspace) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/workspaces',
+    data: {
+      workspace: workspace
+    }
+  });
+};
+var fetchWorkspace = function fetchWorkspace(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/workspaces/".concat(id)
+  });
+};
+var updateWorkspace = function updateWorkspace(workspace) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/workspaces/".concat(workspace.id)
   });
 };
 

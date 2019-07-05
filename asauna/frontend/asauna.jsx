@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import * as workspaceapiutil from './util/workspace_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
+
+    window.fetchWorkspace = workspaceapiutil.fetchWorkspace;
+    window.getState = store.getState
 
     ReactDOM.render(<Root store={store}/>, root);
 });

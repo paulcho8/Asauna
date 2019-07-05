@@ -5,6 +5,10 @@ class Api::WorkspacesController < ApplicationController
         @workspace = Workspace.find(params[:id])
     end
 
+    def index
+        @workspaces = current_user.workspaces
+    end
+
     def create
         @workspace = Workspace.new(workspace_params)
         if @workspace.save

@@ -16,7 +16,14 @@ class User < ApplicationRecord
     validates :name, :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
 
-    has_many :workspaces
+    has_many :workspaceusers,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :WorkspaceUser
+
+    has_many :workspaces,
+        through: :workspaceusers,
+        source: :workspace
 
     after_initialize :ensure_session_token
 

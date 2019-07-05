@@ -7,11 +7,17 @@
 #  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer          not null
 #
 
 class Workspace < ApplicationRecord
     validates :name, presence: true
 
-    belongs_to :user
+    # has_many :workspaceusers,
+    #     primary_key: :id,
+    #     foreign_key: :user_id,
+    #     class_name: :WorkspaceUser
+
+    # has_many :users,
+    #     through: :workspaceusers,
+    #     source: :user
 end
