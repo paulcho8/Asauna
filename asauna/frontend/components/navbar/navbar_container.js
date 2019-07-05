@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import { fetchWorkspace, fetchWorkspaces, updateWorkspace, createWorkspace } from '../../actions/workspace_actions';
+import { fetchWorkspaces, updateWorkspace, createWorkspace } from '../../actions/workspace_actions';
 import Navbar from './navbar';
 
 const mapStateToProps = ({ session, entities: { users, workspaces } }, ownProps) => {

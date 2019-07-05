@@ -437,10 +437,38 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
     _this.logoutHandler = _this.logoutHandler.bind(_assertThisInitialized(_this));
+    _this.showDropdown = _this.showDropdown.bind(_assertThisInitialized(_this));
+    _this.hideDropdown = _this.hideDropdown.bind(_assertThisInitialized(_this));
+    _this.state = {
+      displayBar: false
+    };
     return _this;
   }
 
   _createClass(Navbar, [{
+    key: "showDropdown",
+    value: function showDropdown(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      this.setState({
+        displayBar: true
+      }, function () {
+        document.addEventListener('click', _this2.hideDropdown);
+      });
+    }
+  }, {
+    key: "hideDropdown",
+    value: function hideDropdown() {
+      var _this3 = this;
+
+      this.setState({
+        displayBar: false
+      }, function () {
+        document.removeEventListener('click', _this3.hideDropdown);
+      });
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchWorkspaces();
@@ -448,10 +476,10 @@ function (_React$Component) {
   }, {
     key: "logoutHandler",
     value: function logoutHandler(e) {
-      var _this2 = this;
+      var _this4 = this;
 
       this.props.logout(this.props.currentUser).then(function () {
-        return _this2.props.history.push('/login');
+        return _this4.props.history.push('/login');
       });
     }
   }, {
@@ -464,21 +492,26 @@ function (_React$Component) {
           key: workspace.id
         });
       });
-      var initials = this.props.currentUser.name.split(' ').map(function (word) {
-        return word[0];
-      }).join('');
 
       if (this.props.currentUser) {
+        var initials = this.props.currentUser.name.split(' ').map(function (word) {
+          return word[0];
+        }).join('');
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Topbar--container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "Topbar--header"
-        }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, workspace), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-          className: "Topbar--button"
-        }, initials), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "header-button",
+        }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Avatar Avatar--small Avatar--color1 Topbar--button",
+          onClick: this.showDropdown
+        }, initials), this.state.displayBar ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "menuBar"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "menuItem--content--outer"
+        }, workspace), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "menuItem--content",
           onClick: this.logoutHandler
-        }, "Log Out"));
+        }, "Log Out")) : null);
       } else {
         return null;
       }
@@ -992,7 +1025,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Workspace = function Workspace(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "menuItem--content",
     to: "/home/".concat(props.workspace.id)
   }, props.workspace.name));
 };
@@ -1056,9 +1090,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/home"
-      }, "Workspace Index"));
+      // if (this.props.workspace === undefined) return null
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 

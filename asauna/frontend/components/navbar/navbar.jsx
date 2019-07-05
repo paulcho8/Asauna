@@ -7,6 +7,25 @@ class Navbar extends React.Component {
         super(props)
 
         this.logoutHandler = this.logoutHandler.bind(this)
+        this.showDropdown = this.showDropdown.bind(this)
+        this.hideDropdown = this.hideDropdown.bind(this)
+
+        this.state = {
+            displayBar: false,
+        };
+    }
+
+    showDropdown(e) {
+        e.preventDefault();
+        this.setState({ displayBar: true }, () => {
+            document.addEventListener('click', this.hideDropdown);
+        })
+    }
+
+    hideDropdown() {
+        this.setState({ displayBar: false }, () => {
+            document.removeEventListener('click', this.hideDropdown);
+        })
     }
 
     componentDidMount(){
@@ -29,17 +48,20 @@ class Navbar extends React.Component {
             )
         })
 
-        let initials = this.props.currentUser.name.split(' ').map(word => (word[0])).join('')
-
+        
         if (this.props.currentUser) {
+            let initials = this.props.currentUser.name.split(' ').map(word => (word[0])).join('')
             return(
             <div className="Topbar--container">
                 <h1 className="Topbar--header">Home</h1>
-                <ul>
-                    { workspace }
-                </ul>
-                <h2 className="Topbar--button">{initials}</h2>
-                <button className="header-button" onClick={this.logoutHandler}>Log Out</button>
+                    <div className="Avatar Avatar--small Avatar--color1 Topbar--button" onClick={ this.showDropdown }>{initials}</div>
+                { this.state.displayBar ? (
+                    <ul className="menuBar">
+                        <span className="menuItem--content--outer">{workspace}</span>
+                        <span className="menuItem--content" onClick={this.logoutHandler}>Log Out</span>
+                    </ul>
+                ) : (null)
+                }
             </div>
             )
         } else {

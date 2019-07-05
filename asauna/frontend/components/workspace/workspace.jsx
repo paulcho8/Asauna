@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 
 const Workspace = props => (
-    <div>
-        <Link to={`/home/${props.workspace.id}`}>{props.workspace.name}</Link>
-    </div>
+    <li>
+        <Link className="menuItem--content" to={`/home/${props.workspace.id}`}>{props.workspace.name}</Link>
+    </li>
 )
 
 export default Workspace

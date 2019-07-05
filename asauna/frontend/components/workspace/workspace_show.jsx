@@ -10,10 +10,11 @@ class WorkspaceShow extends React.Component {
     }
 
     render() {
+        // if (this.props.workspace === undefined) return null
         return (
             <div>
                 <Navbar />
-                <Link to="/home">Workspace Index</Link>
+                {/* You're in {this.props.workspace.name} */}
             </div>
         );
     }

@@ -10,6 +10,7 @@
 
 ActiveRecord::Base.transaction do
     demo = User.create!(name: "Demo User", email: "demo@asauna.com", password: "demouser")
+    rb = User.create!(name: "Rose Byrne", email: "rbyrne@asauna.com", password: "password")
 
     workspace1 = Workspace.create!(name: "Engineering", description: "Frontend Team")
     workspace2 = Workspace.create!(name: "Marketing", description: "San Francisco Team")
