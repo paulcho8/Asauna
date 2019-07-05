@@ -1,1 +1,5 @@
-json.extract! @workspaces, :id, :name, :description
+@workspaces.each do |workspace|
+    json.set! workspace.id do 
+        json.partial! 'workspace', workspace: workspace
+    end
+end

@@ -1,1 +1,1 @@
-json.extract! @workspace, :id, :name, :description
+json.partial! 'workspace', workspace: @workspace

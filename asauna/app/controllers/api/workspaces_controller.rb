@@ -6,7 +6,7 @@ class Api::WorkspacesController < ApplicationController
     end
 
     def index
-        @workspaces = current_user.workspaces
+        @workspaces = Workspace.all
     end
 
     def create

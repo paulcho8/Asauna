@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.fetchWorkspace = workspaceapiutil.fetchWorkspace;
+    window.createWorkspace = workspaceapiutil.createWorkspace;
+    window.updateWorkspace = workspaceapiutil.updateWorkspace;
+    window.fetchWorkspaces = workspaceapiutil.fetchWorkspaces;
     window.getState = store.getState
 
     ReactDOM.render(<Root store={store}/>, root);

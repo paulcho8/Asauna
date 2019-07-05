@@ -1,3 +1,17 @@
+export const fetchWorkspaces = () => (
+    $.ajax({
+        method: 'GET',
+        url: `api/workspaces`,
+    })
+);
+    
+export const fetchWorkspace = id => (
+    $.ajax({
+        method: 'GET',
+        url: `api/workspaces/${id}`,
+    })
+    );
+    
 export const createWorkspace = workspace => (
     $.ajax({
         method: 'POST',
@@ -5,17 +19,11 @@ export const createWorkspace = workspace => (
         data: { workspace }
     })
 );
-
-export const fetchWorkspace = id => (
-    $.ajax({
-        method: 'GET',
-        url: `api/workspaces/${id}`,
-    })
-);
-
+        
 export const updateWorkspace = workspace => (
     $.ajax({
         method: 'PATCH',
-        url: `api/workspaces/${workspace.id}`
+        url: `api/workspaces/${workspace.id}`,
+        data: { workspace }
     })
 );
