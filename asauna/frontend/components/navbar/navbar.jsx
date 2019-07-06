@@ -62,6 +62,7 @@ class Navbar extends React.Component {
                             <div className="filler"></div>
                             <div className="filler"></div>
                             &nbsp;
+                            &nbsp;
                             Log Out
                         </span>
                     </ul>

@@ -514,7 +514,7 @@ function (_React$Component) {
           className: "filler"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "filler"
-        }), "\xA0 Log Out")) : null);
+        }), "\xA0 \xA0 Log Out")) : null);
       } else {
         return null;
       }
