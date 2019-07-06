@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import * as workspaceapiutil from './util/workspace_api_util';
+import * as thunkActions from './actions/workspace_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,11 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
-    window.fetchWorkspace = workspaceapiutil.fetchWorkspace;
-    window.createWorkspace = workspaceapiutil.createWorkspace;
-    window.updateWorkspace = workspaceapiutil.updateWorkspace;
-    window.fetchWorkspaces = workspaceapiutil.fetchWorkspaces;
+    window.fetchWorkspace = thunkActions.fetchWorkspace;
+    window.createWorkspace = thunkActions.createWorkspace;
+    window.updateWorkspace = thunkActions.updateWorkspace;
+    window.fetchWorkspaces = thunkActions.fetchWorkspaces;
     window.getState = store.getState
+    window.dispatch = store.dispatch
 
     ReactDOM.render(<Root store={store}/>, root);
 });

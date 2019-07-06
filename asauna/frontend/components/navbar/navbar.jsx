@@ -58,7 +58,12 @@ class Navbar extends React.Component {
                 { this.state.displayBar ? (
                     <ul className="menuBar">
                         <span className="menuItem--content--outer">{workspace}</span>
-                        <span className="menuItem--content" onClick={this.logoutHandler}>Log Out</span>
+                        <span className="menuItem--content" onClick={this.logoutHandler}>
+                            <div className="filler"></div>
+                            <div className="filler"></div>
+                            &nbsp;
+                            Log Out
+                        </span>
                     </ul>
                 ) : (null)
                 }

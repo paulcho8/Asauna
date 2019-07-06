@@ -81,13 +81,12 @@ class SessionForm extends React.Component {
 										/>
 							</div>
 							<div className="form-input form-input--button">
-								<button onClick={this.demoLogin} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" >
-									<span>Demo Login</span>
-								</button>
-
-								{/* <input onSubmit={this.handleSubmit} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" type="submit" value="Log In" disabled={!this.state.email}/> */}
 								<button className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" disabled={!this.state.email}>
 									<span>Log In</span>
+								</button>
+
+								<button onClick={this.demoLogin} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit" >
+									<span>Demo Login</span>
 								</button>
 
 							</div>
