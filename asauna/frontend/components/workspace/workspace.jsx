@@ -18,7 +18,10 @@ class Workspace extends React.Component {
     render() {
         return (
             <div className="workspace--container">
-                <Sidebar workspace={this.props.workspace}/>
+                <Sidebar 
+                    workspace={this.props.workspace}
+                    currentUser={this.props.currentUser}
+                />
                 <Navbar />
             </div>
         );

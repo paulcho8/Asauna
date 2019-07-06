@@ -1070,46 +1070,53 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var workspaceId = this.props.match.params.workspaceId;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-fire sidebar"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-links--content--name"
-      }, "asauna")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "sidebar--links--link",
-        to: "/home/".concat(workspaceId)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--links--content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-home"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "sidebar--links--link",
-        to: "/home/".concat(workspaceId)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--links--content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-check-circle"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "My Tasks")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--workspace"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--workspaceName"
-      }, this.props.workspace.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar--teamMemberList"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Avatar Avatar--small Avatar--color1 Avatar--sidebar"
-      }, "DU"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Avatar Avatar--small Avatar--colorNone Avatar--sidebar"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "Avatar Avatar--small Avatar--colorNone Avatar--sidebar"
-      }))));
+      if (this.props.currentUser) {
+        var workspaceId = this.props.match.params.workspaceId;
+        var initials = this.props.currentUser.name.split(' ').map(function (word) {
+          return word[0];
+        }).join('');
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--title"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-fire sidebar"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-links--content--name"
+        }, "asauna")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--links"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "sidebar--links--link",
+          to: "/home/".concat(workspaceId)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--links--content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-home"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Home"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          className: "sidebar--links--link",
+          to: "/home/".concat(workspaceId)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--links--content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-check-circle"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "My Tasks")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--section"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--workspace"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--workspaceName"
+        }, this.props.workspace.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar--teamMemberList"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Avatar Avatar--small Avatar--color1 Avatar--sidebar"
+        }, initials), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Avatar Avatar--small Avatar--colorNone Avatar--sidebar"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "Avatar Avatar--small Avatar--colorNone Avatar--sidebar"
+        }))));
+      } else {
+        return null;
+      }
     }
   }]);
 
@@ -1215,7 +1222,8 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "workspace--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        workspace: this.props.workspace
+        workspace: this.props.workspace,
+        currentUser: this.props.currentUser
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
@@ -1245,7 +1253,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var workspaceId = ownProps.match.params.workspaceId;
+  var currentUser = state.entities.users[state.session.id];
   return {
+    currentUser: currentUser,
     workspace: state.entities.workspaces[workspaceId] || {}
   };
 };
