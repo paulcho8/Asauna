@@ -4,7 +4,6 @@ import { fetchWorkspaces, updateWorkspace, createWorkspace } from '../../actions
 import Navbar from './navbar';
 
 const mapStateToProps = ({ session, entities: { users, workspaces } }) => {
-    // debugger
     return {
         currentUser: users[session.id],
         workspaces: Object.values(workspaces)

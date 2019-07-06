@@ -45,7 +45,8 @@ class SignupForm extends React.Component {
 		return (
 			<div className="dialog">
 				<div className="dialog--header">
-					<i className="fas fa-fire"></i> asauna 
+					<i className="fas fa-fire"></i> 
+					<div className="session--logo">asauna</div>
 				</div>
 				<div className="dialog--container">
 					<div className="dialog--content">

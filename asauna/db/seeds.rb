@@ -8,7 +8,7 @@
 
 
 
-ActiveRecord::Base.transaction do
+# ActiveRecord::Base.transaction do
     demo = User.create!(name: "Demo User", email: "demo@asauna.com", password: "demouser")
     rb = User.create!(name: "Rose Byrne", email: "rbyrne@asauna.com", password: "password")
 
@@ -16,5 +16,5 @@ ActiveRecord::Base.transaction do
     workspace2 = Workspace.create!(name: "Marketing", description: "San Francisco Team")
 
     
-end
+# end
 

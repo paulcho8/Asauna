@@ -7,7 +7,7 @@ import Splash from './landing_page/landing_page';
 import WorkspaceShowContainer from './workspace/workspace_show_container';
 
 const App = () => (
-    <div>
+    <div className="asauna-ui">
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
