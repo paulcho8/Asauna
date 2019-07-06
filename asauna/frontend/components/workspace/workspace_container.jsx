@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchWorkspace, updateWorkspace, createWorkspace } from '../../actions/workspace_actions';
-import WorkspaceShow from './workspace_show'
+import Workspace from './workspace'
 
 const mapStateToProps = (state, ownProps) => {
     let workspaceId = ownProps.match.params.workspaceId
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WorkspaceShow);
+)(Workspace);

@@ -1,31 +1,28 @@
 import React from 'react';
-import { Link, withRouter} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import Navbar from '../navbar/navbar_container';
+import Sidebar from '../sidebar/sidebar_container';
 
 class Workspace extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props)
     }
 
-    render() {
+    componentDidMount() {
+        let that = this;
+        let workspaceId = this.props.match.params.workspaceId
+        this.props.fetchWorkspace(workspaceId)
+    }
+    
 
+    render() {
         return (
-        <div>
-            <li>
-                <Link className="menuItem--content" to={`/home/${this.props.workspace.id}`}>
-                    <div className="filler"></div>
-                    {(this.props.match.params.workspaceId == this.props.workspace.id)
-                        ? <div className="fas fa-check"></div>
-                        : <div className="filler"></div>
-                    } 
-                    &nbsp;
-                    &nbsp;
-                    {this.props.workspace.name}
-                </Link>
-            </li>
-        </div>
-        )
+            <div className="workspace--container">
+                <Sidebar workspace={this.props.workspace}/>
+                <Navbar />
+            </div>
+        );
     }
 }
 
-export default withRouter(Workspace)
+export default Workspace;

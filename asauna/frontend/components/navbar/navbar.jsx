@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
-import Workspace from '../workspace/workspace'
+import WorkspaceIndex from '../workspace/workspace_index'
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class Navbar extends React.Component {
         if (this.props.workspaces.length === 0) return null;
         let workspace = this.props.workspaces.map(workspace => {
             return (
-                <Workspace 
+                <WorkspaceIndex 
                 workspace={workspace}
                 key={workspace.id}/>
             )
