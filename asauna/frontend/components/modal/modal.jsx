@@ -12,7 +12,7 @@ function Modal({ isOpen, modalType, closeModal, location }) {
     let component;
     switch (modalType) {
         case 'Create Workspace':
-            component = <CreateWorkspaceContainer />;
+            component = <CreateWorkspaceContainer location={location}/>;
             break;
         case 'Edit Workspace':
             component = <EditWorkspaceContainer location={location}/>;

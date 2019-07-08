@@ -3,7 +3,7 @@ import { createWorkspace } from '../../actions/workspace_actions';
 import WorkspaceForm from './workspace_form';
 import { closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         workspace: {name: "", description: ""},
         formType: "Create Workspace"
