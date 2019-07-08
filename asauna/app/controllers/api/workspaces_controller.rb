@@ -19,7 +19,7 @@ class Api::WorkspacesController < ApplicationController
     end
 
     def update
-        @workspace = current_user.workspaces.find(params[:id])
+        @workspace = Workspace.find(params[:id])
         if @workspace.update_attributes(workspace_params)
             render "api/workspaces/show"
         else

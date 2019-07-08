@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import WorkspaceIndex from '../workspace/workspace_index'
+import WorkspaceFormContainer from '../navbar/create_workspace_form_container'
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -9,9 +10,10 @@ class Navbar extends React.Component {
         this.logoutHandler = this.logoutHandler.bind(this)
         this.showDropdown = this.showDropdown.bind(this)
         this.hideDropdown = this.hideDropdown.bind(this)
-
+        
         this.state = {
             displayBar: false,
+            show: false,
         };
     }
 
@@ -52,12 +54,31 @@ class Navbar extends React.Component {
         if (this.props.currentUser) {
             let initials = this.props.currentUser.name.split(' ').map(word => (word[0])).join('')
             return(
+           
             <div className="Topbar--container">
                 <h1 className="Topbar--header">Home</h1>
                     <div className="Avatar Avatar--small Avatar--color1 Topbar--button" onClick={ this.showDropdown }>{initials}</div>
                 { this.state.displayBar ? (
                     <ul className="menuBar">
                         <span className="menuItem--content--outer">{workspace}</span>
+                            <span className="menuItem--content" onClick={() => this.props.openModal('Create Workspace')}>
+                            <div className="filler"></div>
+                            <div className="filler"></div>
+                            &nbsp;
+                            &nbsp;
+                            <div>
+                                Create New Workspace
+                            </div>
+                        </span>
+                            <span className="menuItem--content" onClick={() => this.props.openModal('Edit Workspace')} >
+                            <div className="filler"></div>
+                            <div className="filler"></div>
+                            &nbsp;
+                            &nbsp;
+                            <div>
+                                Edit Workspace
+                            </div>
+                        </span>
                         <span className="menuItem--content" onClick={this.logoutHandler}>
                             <div className="filler"></div>
                             <div className="filler"></div>
@@ -66,15 +87,14 @@ class Navbar extends React.Component {
                             Log Out
                         </span>
                     </ul>
-                ) : (null)
+                ) : null
                 }
             </div>
             )
         } else {
             return null
         }
-    }
-    
+    }    
 };
 
 export default withRouter(Navbar);

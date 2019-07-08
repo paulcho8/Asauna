@@ -9,7 +9,6 @@ class Workspace extends React.Component {
     }
 
     componentDidMount() {
-        let that = this;
         let workspaceId = this.props.match.params.workspaceId
         this.props.fetchWorkspace(workspaceId)
     }

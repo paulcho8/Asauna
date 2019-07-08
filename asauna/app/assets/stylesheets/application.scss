@@ -14,5 +14,9 @@
  *= require_self
  */
 
+ body {
+    font-family: 'Poppins', sans-serif;
+ }
+
  @import "reset.scss";
  @import "components/*";

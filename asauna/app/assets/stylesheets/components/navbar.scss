@@ -8,7 +8,6 @@
 }
 
 .Topbar--header {
-    font-family: 'Poppins';
     font-size: 22px;
     font-weight: 500;
     line-height: 28px;
@@ -41,7 +40,6 @@
 .Avatar--small {
     font-size: 11px;
     height: 26px;
-    font-family: 'Poppins';
     line-height: 26px;
     min-width: 26px;
     width: 26px;
@@ -78,12 +76,12 @@
 .menuItem--content {
     display: flex;
     align-items: center;
-    font-family: 'Poppins';
     font-size: 13px;
     text-decoration: none;
     color: black;
     // padding-left: 30px;
     height: 40px;
+    cursor: pointer;
 }
 
 .menuItem--content:hover {

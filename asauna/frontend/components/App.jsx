@@ -5,9 +5,12 @@ import LogInFormContainer from './session_form/login_form.container';
 import { AuthRoute, PrivateRoute } from '../util/route_util';
 import Splash from './landing_page/landing_page';
 import WorkspaceContainer from './workspace/workspace_container';
+import Modal from '../components/modal/modal';
+import { connect } from 'react-redux';
 
-const App = () => (
+const App = ({ isModalOpen }) => (
     <div className="asauna-ui">
+        { isModalOpen && <Modal /> }
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
@@ -17,4 +20,8 @@ const App = () => (
     </div>
 );
 
-export default withRouter(App);
+const mapStateToProps = ({ UI }) => ({
+    isModalOpen: UI.modal.isOpen,
+})
+
+export default connect(mapStateToProps)(withRouter(App));
