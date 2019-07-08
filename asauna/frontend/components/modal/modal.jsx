@@ -5,17 +5,17 @@ import CreateWorkspaceContainer from '../navbar/create_workspace_form_container'
 import EditWorkspaceContainer from '../navbar/edit_workspace_form_container'
 import { withRouter } from 'react-router-dom';
 
-function Modal({ isOpen, modalType, closeModal, location }) {
+function Modal({ isOpen, modalType, closeModal, location, history }) {
     if (!isOpen) {
         return null;
     }
     let component;
     switch (modalType) {
         case 'Create Workspace':
-            component = <CreateWorkspaceContainer location={location}/>;
+            component = <CreateWorkspaceContainer history={history}/>;
             break;
         case 'Edit Workspace':
-            component = <EditWorkspaceContainer location={location}/>;
+            component = <EditWorkspaceContainer location={location} history={history}/>;
             break;
         default:
             return null;

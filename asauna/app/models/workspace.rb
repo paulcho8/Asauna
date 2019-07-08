@@ -12,12 +12,12 @@
 class Workspace < ApplicationRecord
     validates :name, presence: true
 
-    # has_many :workspaceusers,
-    #     primary_key: :id,
-    #     foreign_key: :user_id,
-    #     class_name: :WorkspaceUser
+    has_many :workspaceusers,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :WorkspaceUser
 
-    # has_many :users,
-    #     through: :workspaceusers,
-    #     source: :user
+    has_many :users,
+        through: :workspaceusers,
+        source: :user
 end

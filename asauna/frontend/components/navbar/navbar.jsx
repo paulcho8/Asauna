@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import WorkspaceIndex from '../workspace/workspace_index'
-import WorkspaceFormContainer from '../navbar/create_workspace_form_container'
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -33,6 +32,7 @@ class Navbar extends React.Component {
     componentDidMount(){
         this.props.fetchWorkspaces();
     }
+
     
     logoutHandler(e) {
         this.props.logout(this.props.currentUser)
@@ -41,12 +41,14 @@ class Navbar extends React.Component {
 
             
     render() {
+        // debugger    
         if (this.props.workspaces.length === 0) return null;
         let workspace = this.props.workspaces.map(workspace => {
             return (
                 <WorkspaceIndex 
                 workspace={workspace}
-                key={workspace.id}/>
+                key={workspace.id}
+                />
             )
         })
 

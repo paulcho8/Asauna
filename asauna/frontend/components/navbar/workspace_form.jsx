@@ -23,8 +23,8 @@ class WorkspaceForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
+        .then(workspace => this.props.history.push(`/home/${workspace.workspace.id}`))
         this.props.closeModal()
-        // this.props.history.push(`/home/${workspace.id}`)
     };
 
     // renderErrors() {
@@ -50,7 +50,7 @@ class WorkspaceForm extends React.Component {
                                 <div className="modal--form--table">
                                     <div className="field">
                                         <label className="modal--form--label">Workspace Name</label>
-                                        <input className="generic-input modal--form--field" type="text" value={this.state.name} onChange={this.update("name")} required/>
+                                        <input className="generic-input modal--form--field" type="text" value={this.state.name} onChange={this.update("name")} required placeholder="Company or Team Name" />
                                     </div>
                                     <div>
                                         <div colSpan="2" className="spacer"></div>

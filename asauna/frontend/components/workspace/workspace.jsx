@@ -8,12 +8,6 @@ class Workspace extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        let workspaceId = this.props.match.params.workspaceId
-        this.props.fetchWorkspace(workspaceId)
-    }
-    
-
     render() {
         return (
             <div className="workspace--container">
