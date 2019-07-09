@@ -20,4 +20,6 @@ class Workspace < ApplicationRecord
     has_many :users,
         through: :workspaceusers,
         source: :user
+
+    has_many :projects
 end
