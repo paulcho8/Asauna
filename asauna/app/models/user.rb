@@ -25,7 +25,7 @@ class User < ApplicationRecord
         through: :workspaceusers,
         source: :workspace
 
-    has_many :projects
+    # has_many :projects
 
     after_initialize :ensure_session_token
 

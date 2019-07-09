@@ -6,11 +6,12 @@ class Api::ProjectsController < ApplicationController
 
     def index
         @projects = Workspace.find(params[:workspace_id]).projects
+        # debugger
     end
 
     def create
         @project = Project.create(project_params)
-        @project.user_id = current_user.id
+        # @project.user_id = current_user.id
         @project.workspace_id = params[:workspace_id] 
         if @project.save
             render "api/projects/show"
@@ -31,13 +32,12 @@ class Api::ProjectsController < ApplicationController
     def destroy
         @project = Project.find(params[:id])
         @project.destroy
-        render "api/projects/index"
     end
 
     private 
 
     def project_params
-        params.require(:project).permit(:name, :workspace_id, :user_id)
+        params.require(:project).permit(:name, :workspace_id)
     end
 
 end

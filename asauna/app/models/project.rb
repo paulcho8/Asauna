@@ -13,9 +13,9 @@
 class Project < ApplicationRecord
 
     validates :name, presence: true
-    validates :user_id, :workspace_id, presence: true, uniqueness: true
+    validates :workspace_id, presence: true
 
-    belongs_to :user
+    # belongs_to :user
     belongs_to :workspace
     
 end

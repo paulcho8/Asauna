@@ -19,7 +19,6 @@ class LoadingPage extends React.Component {
         this.props.fetchWorkspaces()
         .then(() => {
             if (!!that.props.workspaces.length) {
-                debugger
                 that.props.history.push(`/home/${that.props.workspaces[0].id}`)
             } else {
                 that.props.history.push('/home/create')
