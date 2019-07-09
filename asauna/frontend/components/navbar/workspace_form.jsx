@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link  } from 'react-router-dom';
+import { Link, withRouter  } from 'react-router-dom';
 
 
 class WorkspaceForm extends React.Component {
@@ -21,9 +21,14 @@ class WorkspaceForm extends React.Component {
     }
 
     handleSubmit(e) {
+        let that = this;
         e.preventDefault();
         this.props.action(this.state)
-        .then(workspace => this.props.history.push(`/home/${workspace.workspace.id}`))
+        .then(workspace => {
+            // debugger    
+            that.props.history.push(`/home/${workspace.workspace.id}`)}
+        )
+        // debugger
         this.props.closeModal()
     };
 
@@ -78,4 +83,4 @@ class WorkspaceForm extends React.Component {
 }
 
 
-export default (WorkspaceForm);
+export default withRouter(WorkspaceForm);

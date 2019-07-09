@@ -11,8 +11,9 @@ const Auth = ({ component: Component, path, loggedIn, exact, currentUser, worksp
                 <Component {...props} />
                 // <Redirect to="/login"/>
                 ) : (
-                // <Redirect to={"/home/" + Object.keys(workspaces)[0]} />
-                <Redirect to="/home/1" />
+                // <Redirect to={"/home/"} />
+                // <Redirect to="/home/create" />
+                <Redirect to="/home/loading" />
                 )
         )} />
     )

@@ -5,8 +5,10 @@ import { login, removeErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors, entities}) => {
+    // debugger
     return {
+        workspaces: entities.workspaces,
         errors: errors.session,
         login: <Link to="/login">Log In</Link>,
     };

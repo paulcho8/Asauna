@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as thunkActions from './actions/workspace_actions';
+// import * as ajaxAction from './util/workspace_api_util'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
+
 
     window.fetchWorkspace = thunkActions.fetchWorkspace;
     window.createWorkspace = thunkActions.createWorkspace;

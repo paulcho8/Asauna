@@ -2,7 +2,6 @@ class Api::WorkspacesController < ApplicationController
     before_action :require_logged_in
 
     def show
-        # debugger
         @workspace = current_user.workspaces.find(params[:id])
     end
 

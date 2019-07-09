@@ -24,11 +24,11 @@
     join1 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace1.id)
     join2 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace2.id)
     join3 = WorkspaceUser.create!(user_id: user2.id, workspace_id: workspace3.id)
-    join4 = WorkspaceUser.create!(user_id: user2.id, workspace_id: workspace1.id)
+    # join4 = WorkspaceUser.create!(user_id: user2.id, workspace_id: workspace1.id)
     join5 = WorkspaceUser.create!(user_id: user3.id, workspace_id: workspace4.id)
-    join6 = WorkspaceUser.create!(user_id: user3.id, workspace_id: workspace1.id)
+    # join6 = WorkspaceUser.create!(user_id: user3.id, workspace_id: workspace1.id)
     join7 = WorkspaceUser.create!(user_id: user3.id, workspace_id: workspace5.id)
-    join8 = WorkspaceUser.create!(user_id: user4.id, workspace_id: workspace1.id)
+    # join8 = WorkspaceUser.create!(user_id: user4.id, workspace_id: workspace1.id)
     join9 = WorkspaceUser.create!(user_id: user4.id, workspace_id: workspace5.id)
 
 
