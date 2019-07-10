@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 // import * as thunkActions from './actions/workspace_actions';
-import * as ajaxAction from './util/project_api_util';
+import * as thunkAction from './actions/project_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    window.fetchProjects = ajaxAction.fetchProjects
-    window.fetchProject = ajaxAction.fetchProject
-    window.createProject = ajaxAction.createProject
-    window.updateProject = ajaxAction.updateProject
-    window.deleteProject = ajaxAction.deleteProject
+    window.fetchProjects = thunkAction.fetchProjects
+    window.fetchProject = thunkAction.fetchProject
+    window.createProject = thunkAction.createProject
+    window.updateProject = thunkAction.updateProject
+    window.deleteProject = thunkAction.deleteProject
 
     window.getState = store.getState
     window.dispatch = store.dispatch

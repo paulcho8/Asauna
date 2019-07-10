@@ -5,6 +5,14 @@
     overflow: hidden;
 }
 
+.asauna--main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 920px;
+    position: relative;
+}
+
 .newUserWorkspaceContainer {
     display: flex;
     // background: linear-gradient(to top right, 

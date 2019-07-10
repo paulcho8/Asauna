@@ -5,6 +5,7 @@
     align-items: center;
     padding: 0 20px;
     height: 65px;
+    justify-content: space-between;
 }
 
 .Topbar--header {
@@ -19,10 +20,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
+    flex-direction: row;
 }
 
-
+.Topbar--right {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    // min-width: 400px;
+}
 
 .Avatar {
     align-items: center;
@@ -33,7 +39,7 @@
     // -webkit-print-color-adjust: exact;
     display: inline-flex;
     justify-content: center;
-    position: relative;
+    // position: relative;
     vertical-align: top;
 }
 

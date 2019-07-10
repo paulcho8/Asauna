@@ -24,9 +24,9 @@ ActiveRecord::Base.transaction do
     workspace5 = Workspace.create!(name: "Customer Service", description: "Customer Service")
 
     Project.destroy_all
-    project1 = Project.create!(name: "Project A026", workspace_id: workspace1.id)
-    project2 = Project.create!(name: "Project A028", workspace_id: workspace1.id)
-    project3 = Project.create!(name: "Project B011", workspace_id: workspace1.id)
+    project1 = Project.create!(name: "Feature 1", workspace_id: workspace1.id)
+    project2 = Project.create!(name: "Feature 2", workspace_id: workspace1.id)
+    project3 = Project.create!(name: "Feature 3", workspace_id: workspace1.id)
 
     WorkspaceUser.destroy_all
     join1 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace1.id)

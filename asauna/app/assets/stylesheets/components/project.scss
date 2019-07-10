@@ -1,0 +1,131 @@
+
+.project--container {
+    // margin: 30px;
+    // clear: both;
+    display: block;
+    // flex-direction: column;
+    // align-items: center;
+    width: 850px;
+    margin: 0 auto;
+}
+
+.project--container--grid {
+    width: auto;
+    height: auto;
+    align-items: center;
+}
+
+.project--container--content {
+    grid-template-columns: auto auto auto auto auto;
+    display: inline-grid;
+}
+
+.project--header {
+    width: 100%;
+    margin-top: 50px;
+    align-items: center;
+    border-bottom: 2px solid #edf1f2;
+    display: flex;
+    height: 30px;
+    margin-left: 35px;
+    margin-right: 25px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.project--grid {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+}
+
+.project--grid--container {
+    margin: 0 10px;
+
+}
+
+.project--grid--tile {
+    border-radius: 30px;
+    box-sizing: border-box;
+    height: 200px;
+    min-width: 150px;
+    padding: 10px 0;
+    width: 150px;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    -webkit-transition: margin 0.2s ease-out;
+    // -moz-transition: margin 0.5s ease-out;
+    // -o-transition: margin 0.5s ease-out;
+    //  border: 5px solid #ccc; 
+    float: left; 
+    margin: 10px; 
+    cursor: pointer;
+}
+.project--grid--tile:hover {
+    background: rgba(246, 248, 249, 9);
+    transition-duration: .3s;
+    margin-top: 2px;
+}
+
+.project--grid--structure {
+    height: 120px;
+    width: 120px;
+}
+
+.project--grid--tile--card {
+    height: 100%;
+    width: 100%;
+    background-color: pink;
+    border-radius: 30px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project--grid--tile {
+    border-radius: 30px;
+    box-sizing: border-box;
+    height: 180px;
+    min-width: 150px;
+    padding: 10px 0;
+    width: 150px;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    -webkit-transition: margin 0.2s ease-out;
+    // -moz-transition: margin 0.5s ease-out;
+    // -o-transition: margin 0.5s ease-out;
+    //  border: 5px solid #ccc; 
+    float: left; 
+    margin: 7px; 
+    cursor: pointer;
+}
+.project--grid--tile:hover {
+    background: rgba(246, 248, 249, 9);
+    transition-duration: .3s;
+    margin-top: 2px;
+}
+
+.project--grid--tile--empty--card {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 30px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: dashed;
+    color: #9ca6af;
+}
+.project--grid--tile--empty--card:hover {
+    color: #646f79;
+}
+
+.project--grid--name {
+    margin-top: 15px;
+}

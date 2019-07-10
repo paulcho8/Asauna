@@ -12,7 +12,7 @@ class CreateWorkspacePage extends React.Component {
         // debugger
         return (
             <div className="newUserWorkspaceContainer">
-                <img src="../../../../CLean-desk.jpeg" className="creatformimg" width= "100%" height="100%"/>
+                <img src="../../../../CLean-desk.jpeg" width= "100%" height="100%"/>
                 <div className="newWorkspace--content">
                     <NewUserCreateWorkspaceContainer ownProps={this.props}/>    
                 </div>
