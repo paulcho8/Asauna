@@ -12,7 +12,9 @@
     font-size: 22px;
     font-weight: 500;
     line-height: 28px;
-    align-items: center;
+    // align-items: center;
+    margin-top: 25px;
+    max-height: 50px;
     color: #151b26;
     display: flex;
     flex: 0 1 auto;
@@ -21,6 +23,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     flex-direction: row;
+    border-bottom: 1px black;
 }
 
 .Topbar--right {

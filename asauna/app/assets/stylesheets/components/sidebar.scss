@@ -22,6 +22,7 @@
     background-color: #151b26;
     flex-direction: column;
     color: #d5dce0;
+    max-width: 244px;
     min-width: 244px;
     height: 100vh;
     justify-content: center;
@@ -84,4 +85,13 @@
     background-color:rgba(255,255,255,.1);
     border: 0;
     box-shadow: none;
+}
+
+.shamelessPlug {
+    font-size: 50px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 50px;
+    left: 92px;
+    display: flex;
 }

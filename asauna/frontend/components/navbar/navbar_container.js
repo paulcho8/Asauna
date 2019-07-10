@@ -9,7 +9,7 @@ const mapStateToProps = ({ session, entities: { users, workspaces } }) => {
     // debugger
     return {
         currentUser: users[session.id],
-        workspaces: Object.values(workspaces)
+        workspaces: workspaces
     };
 };
 

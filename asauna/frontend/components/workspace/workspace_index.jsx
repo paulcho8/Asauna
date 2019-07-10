@@ -13,16 +13,6 @@ class WorkspaceIndex extends React.Component {
         return (
         <div>
             <li>
-                {/* <Link className="menuItem--content" to={`/home/projectloading`}>
-                    <div className="filler"></div>
-                    {(this.props.match.params.workspaceId == this.props.workspace.id)
-                        ? <div className="fas fa-check"></div>
-                        : <div className="filler"></div>
-                    } 
-                    &nbsp;
-                    &nbsp;
-                    {this.props.workspace.name}
-                </Link> */}
                 <Link className="menuItem--content" to={{pathname: `/home/${this.props.workspace.id}`, state: "flushDeal"}}>
                     <div className="filler"></div>
                     {(this.props.match.params.workspaceId == this.props.workspace.id)

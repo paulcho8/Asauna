@@ -24,7 +24,8 @@ class LoadingPage extends React.Component {
     componentDidMount(){
         let that = this;
         this.props.fetchWorkspaces()
-        .then(setTimeout(() => {
+        .then(
+            setTimeout(() => {
             if (!!that.props.workspaces.length) {
                 that.props.history.push(`/home/${that.props.workspaces[that.props.workspaces.length - 1].id}`)
             } else {
@@ -33,6 +34,14 @@ class LoadingPage extends React.Component {
         }, 2000)
         )
     }
+
+    // action() {
+    //     if (!!this.props.workspaces.length) {
+    //         this.props.history.push(`/home/${this.props.workspaces[this.props.workspaces.length - 1].id}`)
+    //     } else {
+    //         this.props.history.push('/home/create')
+    //     }
+    // }
 
 
 

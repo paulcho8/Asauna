@@ -3,6 +3,7 @@ import { fetchWorkspaces } from '../../actions/workspace_actions';
 import Sidebar from './sidebar'
 
 const mapStateToProps = (state, ownProps) => {
+    // debugger
     return {
         workspace: ownProps.workspace
     };

@@ -24,25 +24,12 @@ class WorkspaceForm extends React.Component {
         let that = this;
         e.preventDefault();
         this.props.action(this.state)
-        .then(workspace => {
-            // debugger    
+        .then(workspace => {  
             that.props.history.push(`/home/loading`)}
         )
-        // debugger
         this.props.closeModal()
     };
 
-    // renderErrors() {
-    //     return (
-    //         <ul className="errors--container">
-    //             {this.props.errors.map((error, i) => (
-    //                 <li className="errors--content" key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
 
     render() {
         return (

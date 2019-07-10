@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class Project extends React.Component {
     constructor(props) {
@@ -18,9 +18,9 @@ class Project extends React.Component {
                                 <i className="far fa-list-alt"></i>
                             </div>
                         </div>
-                        <div className="project--grid--name">
+                        <Link className="project--grid--name" to={{pathname: `/home/${this.props.match.params.workspaceId}/${this.props.project.id}`}}>
                             {this.props.project.name}
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

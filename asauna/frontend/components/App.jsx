@@ -9,6 +9,7 @@ import LoadingPageContainer from './loading_page/loading_page.container';
 import Modal from '../components/modal/modal';
 import { connect } from 'react-redux';
 import CreateWorkspacePageContainer from './create_workspace_page/create_workspace_page_container';
+import ProjectShowContainer from './project_show/project_show_container';
 
 const App = ({ isModalOpen }) => (
     <div className="asauna-ui">
@@ -18,6 +19,7 @@ const App = ({ isModalOpen }) => (
             <AuthRoute path="/signup" component={SignUpFormContainer} />
             <Route path="/home/loading" component={LoadingPageContainer}/>
             <Route path="/home/create" component={CreateWorkspacePageContainer}/>
+            <Route path="/home/:workspaceId/:projectId" component={ProjectShowContainer} />
             <Route path="/home/:workspaceId" component={WorkspaceContainer} />
             <AuthRoute path="/" component={Splash} />
         </Switch>

@@ -128,4 +128,19 @@
 
 .project--grid--name {
     margin-top: 15px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.project--show--container {
+    display: flex;
+}
+
+.header--name {
+    margin-right: 15px;
+}
+
+.fa-linkedin {
+    color: #0077B5;
 }
