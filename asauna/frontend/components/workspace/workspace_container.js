@@ -7,6 +7,7 @@ import Workspace from './workspace'
 const mapStateToProps = (state, ownProps) => {
     let workspaceId = ownProps.match.params.workspaceId
     let currentUser = state.entities.users[state.session.id]
+    // debugger
     return {
         currentUser,
         workspace: state.entities.workspaces[workspaceId] || {},

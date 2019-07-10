@@ -11,6 +11,8 @@
     flex-direction: column;
     min-width: 920px;
     position: relative;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .newUserWorkspaceContainer {

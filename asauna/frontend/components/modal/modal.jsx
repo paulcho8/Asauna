@@ -17,6 +17,7 @@ function Modal({ isOpen, modalType, closeModal, location, history }) {
             break;
         case 'Edit Workspace':
             component = <EditWorkspaceContainer location={location} history={history}/>;
+            break;
         case 'Create Project':
             component = <CreateProjectContainer/>
             break;

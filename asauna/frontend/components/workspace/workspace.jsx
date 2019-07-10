@@ -7,13 +7,34 @@ import { withRouter } from 'react-router-dom';
 class Workspace extends React.Component {
     constructor(props){
         super(props)
+
+        this.state = {
+            isFlushed: false
+        }
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let that = this;
+        // if (!!that.props.projects && nextProps.projects) {
+        that.setState({
+            isFlushed: false
+        })
+        // }
+        
+        if (!that.state.isFlushed && nextProps.location.state === 'flushDeal') {
+            that.setState({
+                isFlushed: true,
+            }, () => 
+            that.props.fetchProjects(that.props.match.params.workspaceId))
+        }
+        // debugger
     }
 
     componentDidMount() {
         this.props.fetchProjects(this.props.match.params.workspaceId)
-    }
+    }  
 
-    
 
     render() {
         if (this.props.projects === undefined) return null;
@@ -26,6 +47,13 @@ class Workspace extends React.Component {
                 />
             )
         })
+
+        // window.location.reload()
+        // const refresh = window.localStorage.getItem('refresh');
+        // if (refresh === null) {
+        //     window.location.reload();
+        //     window.localStorage.setItem('refresh', "1");
+        // }
 
         return (
             <div className="workspace--container">

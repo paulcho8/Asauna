@@ -33,6 +33,7 @@ class Navbar extends React.Component {
         this.props.fetchWorkspaces();
     }
 
+
     
     logoutHandler(e) {
         this.props.logout(this.props.currentUser)

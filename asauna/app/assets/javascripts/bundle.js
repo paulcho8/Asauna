@@ -411,11 +411,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/login_form.container */ "./frontend/components/session_form/login_form.container.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _landing_page_landing_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./landing_page/landing_page */ "./frontend/components/landing_page/landing_page.jsx");
-/* harmony import */ var _workspace_workspace_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./workspace/workspace_container */ "./frontend/components/workspace/workspace_container.jsx");
+/* harmony import */ var _workspace_workspace_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./workspace/workspace_container */ "./frontend/components/workspace/workspace_container.js");
 /* harmony import */ var _loading_page_loading_page_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./loading_page/loading_page.container */ "./frontend/components/loading_page/loading_page.container.js");
 /* harmony import */ var _components_modal_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/modal/modal */ "./frontend/components/modal/modal.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _create_workspace_page_create_workspace_page_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./create_workspace_page/create_workspace_page_container */ "./frontend/components/create_workspace_page/create_workspace_page_container.js");
+/* harmony import */ var _project_loading_project_loading_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./project_loading/project_loading_container */ "./frontend/components/project_loading/project_loading_container.js");
+
 
 
 
@@ -441,6 +443,9 @@ var App = function App(_ref) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/home/loading",
     component: _loading_page_loading_page_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/home/projectloading",
+    component: _project_loading_project_loading_container__WEBPACK_IMPORTED_MODULE_11__["ProjectLoadingContainer"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/home/create",
     component: _create_workspace_page_create_workspace_page_container__WEBPACK_IMPORTED_MODULE_10__["default"]
@@ -920,9 +925,16 @@ function (_React$Component) {
   _inherits(LoadingPage, _React$Component);
 
   function LoadingPage(props) {
+    var _this;
+
     _classCallCheck(this, LoadingPage);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(LoadingPage).call(this, props)); // this.handleLogout = this.handleLogout.bind(this)
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoadingPage).call(this, props));
+    _this.state = {
+      splashFinished: false // this.handleLogout = this.handleLogout.bind(this)
+
+    };
+    return _this;
   } // handleLogout(e) {
   //     this.props.logout()
   //     .then(this.props.history.push('/login'))
@@ -935,7 +947,7 @@ function (_React$Component) {
       var that = this;
       this.props.fetchWorkspaces().then(function () {
         if (!!that.props.workspaces.length) {
-          that.props.history.push("/home/".concat(that.props.workspaces[0].id));
+          that.props.history.push("/home/".concat(that.props.workspaces[that.props.workspaces.length - 1].id));
         } else {
           that.props.history.push('/home/create');
         }
@@ -944,9 +956,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-spinner"
-      }));
+      if (this.state.splashFinished) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-spinner"
+        }));
+      }
     }
   }]);
 
@@ -1007,6 +1021,7 @@ function Modal(_ref) {
         location: location,
         history: history
       });
+      break;
 
     case 'Create Project':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_project_create_project_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
@@ -1488,7 +1503,7 @@ function (_React$Component) {
       e.preventDefault();
       this.props.action(this.state).then(function (workspace) {
         // debugger    
-        that.props.history.push("/home/".concat(workspace.workspace.id));
+        that.props.history.push("/home/loading");
       }); // debugger
 
       this.props.closeModal();
@@ -1800,6 +1815,106 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Project));
+
+/***/ }),
+
+/***/ "./frontend/components/project_loading/project_loading.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/project_loading/project_loading.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var ProjectLoading =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ProjectLoading, _React$Component);
+
+  function ProjectLoading(props) {
+    _classCallCheck(this, ProjectLoading);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ProjectLoading).call(this, props));
+  }
+
+  _createClass(ProjectLoading, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var that = this;
+      this.props.fetchProjects(this.props.match.params.workspaceId).then(function () {
+        that.props.history.push("/home/".concat(that.props.match.params.workspaceId));
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading");
+    }
+  }]);
+
+  return ProjectLoading;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ProjectLoading));
+
+/***/ }),
+
+/***/ "./frontend/components/project_loading/project_loading_container.js":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/project_loading/project_loading_container.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_project_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/project_actions */ "./frontend/actions/project_actions.js");
+/* harmony import */ var _project_loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project_loading */ "./frontend/components/project_loading/project_loading.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    projects: Object.values(state.entities.projects)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchProjects: function fetchProjects(workspaceId) {
+      return dispatch(Object(_actions_project_actions__WEBPACK_IMPORTED_MODULE_1__["fetchProjects"])(workspaceId));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_project_loading__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -2431,12 +2546,36 @@ function (_React$Component) {
   _inherits(Workspace, _React$Component);
 
   function Workspace(props) {
+    var _this;
+
     _classCallCheck(this, Workspace);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Workspace).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Workspace).call(this, props));
+    _this.state = {
+      isFlushed: false
+    };
+    return _this;
   }
 
   _createClass(Workspace, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      var that = this; // if (!!that.props.projects && nextProps.projects) {
+
+      that.setState({
+        isFlushed: false
+      }); // }
+
+      if (!that.state.isFlushed && nextProps.location.state === 'flushDeal') {
+        that.setState({
+          isFlushed: true
+        }, function () {
+          return that.props.fetchProjects(that.props.match.params.workspaceId);
+        });
+      } // debugger
+
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchProjects(this.props.match.params.workspaceId);
@@ -2444,7 +2583,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.props.projects === undefined) return null;
       var project = this.props.projects.map(function (project) {
@@ -2452,7 +2591,13 @@ function (_React$Component) {
           project: project,
           key: project.id
         });
-      });
+      }); // window.location.reload()
+      // const refresh = window.localStorage.getItem('refresh');
+      // if (refresh === null) {
+      //     window.location.reload();
+      //     window.localStorage.setItem('refresh', "1");
+      // }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "workspace--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2475,7 +2620,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "project--grid--tile",
         onClick: function onClick() {
-          return _this.props.openModal('Create Project');
+          return _this2.props.openModal('Create Project');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "project--grid--structure"
@@ -2496,10 +2641,10 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ "./frontend/components/workspace/workspace_container.jsx":
-/*!***************************************************************!*\
-  !*** ./frontend/components/workspace/workspace_container.jsx ***!
-  \***************************************************************/
+/***/ "./frontend/components/workspace/workspace_container.js":
+/*!**************************************************************!*\
+  !*** ./frontend/components/workspace/workspace_container.js ***!
+  \**************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2518,7 +2663,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var workspaceId = ownProps.match.params.workspaceId;
-  var currentUser = state.entities.users[state.session.id];
+  var currentUser = state.entities.users[state.session.id]; // debugger
+
   return {
     currentUser: currentUser,
     workspace: state.entities.workspaces[workspaceId] || {},
@@ -2592,18 +2738,17 @@ function (_React$Component) {
     _classCallCheck(this, WorkspaceIndex);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(WorkspaceIndex).call(this, props));
-  } // componentDidMount(){
-  //     debugger
-  //     this.props.fetchWorkspaces();
-  // }
-
+  }
 
   _createClass(WorkspaceIndex, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "menuItem--content",
-        to: "/home/".concat(this.props.workspace.id)
+        to: {
+          pathname: "/home/".concat(this.props.workspace.id),
+          state: "flushDeal"
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "filler"
       }), this.props.match.params.workspaceId == this.props.workspace.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2732,6 +2877,7 @@ var projectsReducer = function projectsReducer() {
 
   switch (action.type) {
     case _actions_project_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PROJECTS"]:
+      // return Object.assign({}, state, action.projects )
       return action.projects;
 
     case _actions_project_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PROJECT"]:

@@ -26,7 +26,7 @@ class WorkspaceForm extends React.Component {
         this.props.action(this.state)
         .then(workspace => {
             // debugger    
-            that.props.history.push(`/home/${workspace.workspace.id}`)}
+            that.props.history.push(`/home/loading`)}
         )
         // debugger
         this.props.closeModal()

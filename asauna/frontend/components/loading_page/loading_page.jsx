@@ -5,6 +5,12 @@ class LoadingPage extends React.Component {
     constructor(props) {
         super(props)
 
+;
+
+        this.state = {
+            splashFinished: false,
+        }
+
 
         // this.handleLogout = this.handleLogout.bind(this)
     }
@@ -19,7 +25,7 @@ class LoadingPage extends React.Component {
         this.props.fetchWorkspaces()
         .then(() => {
             if (!!that.props.workspaces.length) {
-                that.props.history.push(`/home/${that.props.workspaces[0].id}`)
+                that.props.history.push(`/home/${that.props.workspaces[that.props.workspaces.length - 1].id}`)
             } else {
                 that.props.history.push('/home/create')
             }
@@ -27,12 +33,16 @@ class LoadingPage extends React.Component {
     }
 
 
+
     render() {
-        return (
-            <div>
+        if (this.state.splashFinished) {
+
+            return (
+                <div>   
                     <i className="fas fa-spinner" ></i>
             </div>
         )
+        }
     }
 }
 
