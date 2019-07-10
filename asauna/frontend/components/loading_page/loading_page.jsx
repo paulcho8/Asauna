@@ -35,14 +35,11 @@ class LoadingPage extends React.Component {
 
 
     render() {
-        if (this.state.splashFinished) {
-
-            return (
-                <div>   
-                    <i className="fas fa-spinner" ></i>
+        return (
+            <div>   
+                <i className="fas fa-spinner" ></i>
             </div>
         )
-        }
     }
 }
 
