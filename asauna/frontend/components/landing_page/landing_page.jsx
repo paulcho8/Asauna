@@ -51,7 +51,7 @@ class Splash extends React.Component {
                                     Increase your team's efficiency by 45%
                                 </h4>
                                 <p className="-large">
-                                    Teams report they get more done with less time and resources when using Asana Premium because its powerful features help them execute work successfully.
+                                    Teams report they get more done with less time and resources when using Asauna Premium because its powerful features help them execute work successfully.
                                 </p>
                             </div>
                             <div className="right--image--container">

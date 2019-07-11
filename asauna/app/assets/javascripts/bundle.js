@@ -952,7 +952,7 @@ function (_React$Component) {
         className: "-h4"
       }, "Increase your team's efficiency by 45%"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "-large"
-      }, "Teams report they get more done with less time and resources when using Asana Premium because its powerful features help them execute work successfully.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Teams report they get more done with less time and resources when using Asauna Premium because its powerful features help them execute work successfully.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "right--image--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         "class": "lazyImage",
