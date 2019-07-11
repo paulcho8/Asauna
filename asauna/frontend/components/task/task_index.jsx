@@ -22,11 +22,6 @@ class TaskIndex extends React.Component {
         this.props.createTask({name: "", workspace_id: this.props.match.params.workspaceId})
     }
 
-
-    // componentDidUpdate() {
-    //     this.props.fetchTasks(this.props.match.params.workspaceId)        
-    // }
-
     render() {
         const workspace = this.props.workspace ? this.props.workspace : null
         return (

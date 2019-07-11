@@ -17,6 +17,6 @@ class Task < ApplicationRecord
     validates :workspace_id, presence: true
 
     belongs_to :workspace
-    # belongs_to :project
+    belongs_to :project, optional: true
 
 end

@@ -2,20 +2,33 @@ import React from 'react';
 import Sidebar from '../sidebar/sidebar_container'
 import Navbar from '../navbar/navbar_container';
 import { withRouter } from 'react-router-dom';
-// import TaskIndexItem from '../task/task_index_item';
+import TaskIndexItem from '../task/task_index_item';
 
 class ProjectShow extends React.Component {
     constructor(props) {
         super(props)
 
-
         this.handleRemove = this.handleRemove.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
 
     componentDidMount(){
         this.props.fetchProject(this.props.match.params.projectId)
         this.props.fetchWorkspaces();
+        this.props.fetchTasks(this.props.match.params.workspaceId)
+    }
+
+    handleSubmit() {
+        // debugger
+        this.props.createTask({ name: "", workspace_id: this.props.match.params.workspaceId, project_id: this.props.match.params.projectId })
+    }
+
+    handleTaskRemove() {
+        this.props.deleteTask(this.props.task.id)
+            .then(() => {
+                this.props.fetchTasks(this.props.match.params.workspaceId)
+            })
     }
 
     handleRemove(){
@@ -27,6 +40,17 @@ class ProjectShow extends React.Component {
     render() {
         const projectName = this.props.project ? this.props.project.name : ""
         const workspace = this.props.workspace ? this.props.workspace : null
+
+            // Object.values(this.props.tasks).filter(task => task.project_id === this.props.match.params.projectId).map(task =>
+            //     <TaskIndexItem
+            //         task={task}
+            //         key={task.id}
+            //         deleteTask={this.props.deleteTask}
+            //         updateTask={this.props.updateTask}
+            //         fetchTasks={this.props.fetchTasks}
+            //     />
+            // )
+        // debugger
         return (
             <div>
                 <div className="tasks--container">
@@ -49,7 +73,15 @@ class ProjectShow extends React.Component {
                                 </div>
                                 <div className="tasks--index--content">
                                     <div>
-                                        {/* {taskNames} */}
+                                        {Object.values(this.props.tasks).filter(task => task.project_id == this.props.match.params.projectId).map(task =>
+                                            <TaskIndexItem
+                                                task={task}
+                                                key={task.id}
+                                                deleteTask={this.props.deleteTask}
+                                                updateTask={this.props.updateTask}
+                                                fetchTasks={this.props.fetchTasks}
+                                            />
+                                        )}
                                     </div>
                                 </div>
                                 <div className="tasks--index--footer">

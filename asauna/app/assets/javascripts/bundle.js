@@ -1989,6 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../sidebar/sidebar_container */ "./frontend/components/sidebar/sidebar_container.js");
 /* harmony import */ var _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../navbar/navbar_container */ "./frontend/components/navbar/navbar_container.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _task_task_index_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../task/task_index_item */ "./frontend/components/task/task_index_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2010,7 +2011,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
- // import TaskIndexItem from '../task/task_index_item';
+
+
 
 var ProjectShow =
 /*#__PURE__*/
@@ -2024,6 +2026,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectShow).call(this, props));
     _this.handleRemove = _this.handleRemove.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2032,22 +2035,54 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchProject(this.props.match.params.projectId);
       this.props.fetchWorkspaces();
+      this.props.fetchTasks(this.props.match.params.workspaceId);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      // debugger
+      this.props.createTask({
+        name: "",
+        workspace_id: this.props.match.params.workspaceId,
+        project_id: this.props.match.params.projectId
+      });
+    }
+  }, {
+    key: "handleTaskRemove",
+    value: function handleTaskRemove() {
+      var _this2 = this;
+
+      this.props.deleteTask(this.props.task.id).then(function () {
+        _this2.props.fetchTasks(_this2.props.match.params.workspaceId);
+      });
     }
   }, {
     key: "handleRemove",
     value: function handleRemove() {
-      var _this2 = this;
+      var _this3 = this;
 
       var projectId = this.props.match.params.projectId;
       this.props.deleteProject(projectId).then(function () {
-        return _this2.props.history.push("/home/".concat(_this2.props.workspace.id));
+        return _this3.props.history.push("/home/".concat(_this3.props.workspace.id));
       });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       var projectName = this.props.project ? this.props.project.name : "";
-      var workspace = this.props.workspace ? this.props.workspace : null;
+      var workspace = this.props.workspace ? this.props.workspace : null; // Object.values(this.props.tasks).filter(task => task.project_id === this.props.match.params.projectId).map(task =>
+      //     <TaskIndexItem
+      //         task={task}
+      //         key={task.id}
+      //         deleteTask={this.props.deleteTask}
+      //         updateTask={this.props.updateTask}
+      //         fetchTasks={this.props.fetchTasks}
+      //     />
+      // )
+      // debugger
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2073,7 +2108,17 @@ function (_React$Component) {
         onClick: this.handleSubmit
       }, "Add Task")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--index--content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, Object.values(this.props.tasks).filter(function (task) {
+        return task.project_id == _this4.props.match.params.projectId;
+      }).map(function (task) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_task_task_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          task: task,
+          key: task.id,
+          deleteTask: _this4.props.deleteTask,
+          updateTask: _this4.props.updateTask,
+          fetchTasks: _this4.props.fetchTasks
+        });
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--index--footer"
       }))))));
     }
@@ -2817,10 +2862,7 @@ function (_React$Component) {
         name: "",
         workspace_id: this.props.match.params.workspaceId
       });
-    } // componentDidUpdate() {
-    //     this.props.fetchTasks(this.props.match.params.workspaceId)        
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
