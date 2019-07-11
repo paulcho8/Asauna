@@ -19,10 +19,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return  {
+        fetchWorkspaces: () => dispatch(fetchWorkspaces()),
         fetchTasks: (workspace_id) => dispatch(fetchTasks(workspace_id)),
         fetchTask: (id) => dispatch(fetchTask(id)),
         deleteTask: (id) => dispatch(deleteTask(id)),
-        fetchWorkspaces: () => dispatch(fetchWorkspaces()),
         createTask: (task) => dispatch(createTask(task)),
         updateTask: (task) => dispatch(updateTask(task))
     }

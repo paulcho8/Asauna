@@ -25,9 +25,12 @@ class TaskIndex extends React.Component {
     }
 
     update(value) {
-       this.setState({
+        let that = this;
+        that.setState({
            name: value
-       });
+        }), () => {
+           that.props.updateTask(that.state)
+       }
     }
 
     // componentDidUpdate() {
@@ -43,7 +46,7 @@ class TaskIndex extends React.Component {
                     <div className="check--button">
                         X
                     </div>
-                    <input type="text" className="task--input" value={task.name} onChange={(e) => this.update(e.target.value)}/>
+                    <input type="text" className="task--input" value={this.state.name} onChange={(e) => this.update(e.target.value)}/>
                 </form>
             </div>
             <div className="tasks--index--row--dueDate">
@@ -59,6 +62,9 @@ class TaskIndex extends React.Component {
                 />
                 <div className="tasks--main--container">
                     <Navbar />
+                    <div className="Topbar--header">
+                        <span className="header--name">My Tasks</span>
+                    </div>
                     <div className="tasks--main">
                         <div className="tasks--index--container">
                             <div className="tasks--index--header">

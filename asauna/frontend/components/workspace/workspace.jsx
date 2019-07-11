@@ -63,6 +63,9 @@ class Workspace extends React.Component {
                 />
                 <div className="asauna--main">
                     <Navbar />
+                    <div className="Topbar--header">
+                        <span className="header--name">Home</span>
+                    </div>
                     <div className="project--container">
                     <header className="project--header">Recent Projects</header>
                         <div className="project--container--grid">

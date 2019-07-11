@@ -1442,10 +1442,6 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Topbar--container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "Topbar--left"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "Topbar--header"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Topbar--right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Avatar Avatar--small Avatar--color1 Topbar--button",
@@ -1993,20 +1989,49 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var projectName = this.props.project ? this.props.project.name : "";
-      var workspace = this.props.workspace ? this.props.workspace : null;
+      var workspace = this.props.workspace ? this.props.workspace : null; // const taskNames = Object.values(this.props.tasks).map(task =>
+      //     <div className="tasks--index--row">
+      //         <div className="tasks--index--row--main">
+      //             <form className='task--form'>
+      //                 <div className="check--button">
+      //                     X
+      //             </div>
+      //                 <input type="text" className="task--input" value="" onChange={(e) => this.update(e.target.value)} />
+      //             </form>
+      //         </div>
+      //         <div className="tasks--index--row--dueDate">
+      //             {task.due_date}
+      //         </div>
+      //     </div>)
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "project--show--container"
+        className: "tasks--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
         currentUser: this.props.currentUser,
         workspace: workspace
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--main--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Topbar--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "header--name"
       }, projectName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleRemove,
         className: "buttonView buttonView--default buttonView--primary buttonView--large button-submit"
-      }, "Delete Project"))));
+      }, "Delete Project")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--index--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--index--header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "buttonView buttonView--default buttonView--primary buttonView--large button-submit",
+        onClick: this.handleSubmit
+      }, "Add Task")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--index--content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tasks--index--footer"
+      }))))));
     }
   }]);
 
@@ -2031,6 +2056,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _project_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./project_show */ "./frontend/components/project_show/project_show.jsx");
 /* harmony import */ var _actions_workspace_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/workspace_actions */ "./frontend/actions/workspace_actions.js");
+/* harmony import */ var _actions_task_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/task_actions */ "./frontend/actions/task_actions.js");
+
 
 
 
@@ -2042,10 +2069,12 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var project = state.entities.projects[ownProps.match.params.projectId];
   var workspaceId = ownProps.match.params.workspaceId;
   var workspace = state.entities.workspaces[workspaceId];
+  var tasks = state.entities.tasks;
   return {
     project: project,
     currentUser: currentUser,
-    workspace: workspace
+    workspace: workspace,
+    tasks: tasks
   };
 };
 
@@ -2065,6 +2094,21 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteProject: function deleteProject(id) {
       return dispatch(Object(_actions_project_actions__WEBPACK_IMPORTED_MODULE_1__["deleteProject"])(id));
+    },
+    fetchTasks: function fetchTasks(workspace_id) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_5__["fetchTasks"])(workspace_id));
+    },
+    fetchTask: function fetchTask(id) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_5__["fetchTask"])(id));
+    },
+    deleteTask: function deleteTask(id) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_5__["deleteTask"])(id));
+    },
+    createTask: function createTask(task) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_5__["createTask"])(task));
+    },
+    updateTask: function updateTask(task) {
+      return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_5__["updateTask"])(task));
     }
   };
 };
@@ -2731,9 +2775,12 @@ function (_React$Component) {
   }, {
     key: "update",
     value: function update(value) {
-      this.setState({
+      var that = this;
+      that.setState({
         name: value
-      });
+      }), function () {
+        that.props.updateTask(that.state);
+      };
     } // componentDidUpdate() {
     //     this.props.fetchTasks(this.props.match.params.workspaceId)        
     // }
@@ -2756,7 +2803,7 @@ function (_React$Component) {
         }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "task--input",
-          value: task.name,
+          value: _this2.state.name,
           onChange: function onChange(e) {
             return _this2.update(e.target.value);
           }
@@ -2772,6 +2819,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--main--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Topbar--header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "header--name"
+      }, "My Tasks")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--index--container"
@@ -2827,6 +2878,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchWorkspaces: function fetchWorkspaces() {
+      return dispatch(Object(_actions_workspace_actions__WEBPACK_IMPORTED_MODULE_2__["fetchWorkspaces"])());
+    },
     fetchTasks: function fetchTasks(workspace_id) {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["fetchTasks"])(workspace_id));
     },
@@ -2835,9 +2889,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteTask: function deleteTask(id) {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["deleteTask"])(id));
-    },
-    fetchWorkspaces: function fetchWorkspaces() {
-      return dispatch(Object(_actions_workspace_actions__WEBPACK_IMPORTED_MODULE_2__["fetchWorkspaces"])());
     },
     createTask: function createTask(task) {
       return dispatch(Object(_actions_task_actions__WEBPACK_IMPORTED_MODULE_1__["createTask"])(task));
@@ -2957,6 +3008,10 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "asauna--main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Topbar--header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "header--name"
+      }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "project--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "project--header"

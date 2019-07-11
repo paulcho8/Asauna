@@ -1,11 +1,11 @@
 .Topbar--container {
-    display: flex;
-    flex-shrink: 0;
-    background: #fff;
-    align-items: center;
-    padding: 0 20px;
-    height: 65px;
-    justify-content: space-between;
+    // display: flex;
+    // flex-shrink: 0;
+    // background: #fff;
+    // align-items: center;
+    // padding: 0 20px;
+    // height: 65px;
+    // justify-content: space-between;
 }
 
 .Topbar--header {
@@ -64,7 +64,7 @@
     margin: 0;
     padding: 0;
     right: 21px;
-    // top: 25px;
+    top: 25px;
 }
 
 .menuBar {
