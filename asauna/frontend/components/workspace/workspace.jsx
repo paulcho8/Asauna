@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from '../navbar/navbar_container';
 import Sidebar from '../sidebar/sidebar_container';
 import Project from '../project/project';
-import ProjectShow from '../project_show/project_show_container'
 import { withRouter } from 'react-router-dom';
 
 class Workspace extends React.Component {

@@ -103,6 +103,10 @@
     float: left; 
     margin: 7px; 
     cursor: pointer;
+
+    text-decoration: none;
+    color: black;
+
 }
 .project--grid--tile:hover {
     background: rgba(246, 248, 249, 9);
@@ -128,8 +132,6 @@
 
 .project--grid--name {
     margin-top: 15px;
-    text-decoration: none;
-    color: black;
     text-align: center;
 }
 

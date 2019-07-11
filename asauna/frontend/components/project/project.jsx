@@ -12,16 +12,16 @@ class Project extends React.Component {
         return (
             <div className="project--grid">
                 <div className="project--grid--container">
-                    <div className="project--grid--tile">
+                    <Link className="project--grid--tile" to={{ pathname: `/home/${this.props.match.params.workspaceId}/${this.props.project.id}` }}>
                         <div className="project--grid--structure">
                             <div className="project--grid--tile--card">
                                 <i className="far fa-list-alt"></i>
                             </div>
                         </div>
-                        <Link className="project--grid--name" to={{pathname: `/home/${this.props.match.params.workspaceId}/${this.props.project.id}`}}>
+                        <div className="project--grid--name" >
                             {this.props.project.name}
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
         )

@@ -1,0 +1,121 @@
+.tasks--container {
+    display: flex;
+    flex: 1;
+    min-height: 1px;
+    overflow: hidden;
+}
+
+.tasks--main--container {
+    display: block;
+    flex: 1;
+    flex-direction: column;
+    min-width: 920px;
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.tasks--main {
+    display: flex;
+    justify-content: center;
+    background: #F6F8F9;
+    height: calc(100vh - 70px);
+}
+
+.tasks--index--container {
+    font-size: 14px;
+    position: relative;
+    height: calc(100% - 30px);
+    width: 80%;
+    min-width: 405px;
+    margin: 15px;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
+    overflow: auto;
+}
+
+.tasks--index--header {
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid #e0e6e8;
+    border-radius: 4px 4px 0 0 ;
+    display: flex;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    height: 50px;
+    padding-left: 30px;
+}
+
+.tasks--index--content {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+}
+
+.tasks--index--footer {
+    height: 15px;
+}
+
+.tasks--index--row {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    white-space: nowrap;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    min-height: 34px;
+}
+
+.tasks--index--row--main {
+    width: 100%;
+    border-bottom: 1px solid #e0e6e8;
+}
+
+.tasks--index--row--dueDate {
+    position: relative;
+    border-bottom: 1px solid #e0e6e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #646f79;
+    font-size: 12px;
+    height: 34px;
+    margin-right: 5px;
+}
+
+.task--form {
+    display: flex;
+    align-items: center;
+    height: 34px;
+}
+
+.check--button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+    fill: #848f99;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px 0 0;
+    background: #fff;
+    border: 1px solid;
+}
+
+.task--input {
+    background-color: transparent;
+    color: #151b26;
+    height: 16px;
+    padding: 0px;
+    resize: none;
+    display: flex;
+    align-items: center;
+    line-height: 15px;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}

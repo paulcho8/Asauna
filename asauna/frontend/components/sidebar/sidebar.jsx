@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
                     </div>
                 </Link>
 
-                <Link className="sidebar--links--link" to={`/home/${workspaceId}`}>
+                <Link className="sidebar--links--link" to={`/home/${workspaceId}/tasks`}>
                     <div className="sidebar--links--content">
                         <i className="fas fa-check-circle"></i>
                         <div>My Tasks</div>
