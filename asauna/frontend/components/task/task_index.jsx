@@ -46,7 +46,7 @@ class TaskIndex extends React.Component {
                     <div className="check--button">
                         X
                     </div>
-                    <input type="text" className="task--input" value={this.state.name} onChange={(e) => this.update(e.target.value)}/>
+                    <input type="text" className="task--input" value={task.name} onChange={(e) => this.update(e.target.value)}/>
                 </form>
             </div>
             <div className="tasks--index--row--dueDate">

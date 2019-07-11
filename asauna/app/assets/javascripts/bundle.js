@@ -910,11 +910,58 @@ function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Splash coming soon! ^_^", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/login"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        className: "splash--header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--subheader"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--mark"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-fire"
+      }), "\xA0 asauna"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--session--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/login",
+        className: "splash--session"
       }, "Log In"), "\xA0 \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/signup"
-      }, "Sign Up"));
+        to: "/signup",
+        className: "splash--session"
+      }, "Sign Up")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "splash--section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--masthead"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--centerpiece"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "textStack"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "-label"
+      }, "Asauna Premium"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "splash--page--header"
+      }, "Help your team do its best work with Asauna"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "splash--page--subheader"
+      }, "Go beyond to-do lists and get the features you need to plan and manage projects\u2014from start to finish.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash--image--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "left--content--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "-label"
+      }, "Efficiency"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "-h4"
+      }, "Increase your team's efficiency by 45%"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "-large"
+      }, "Teams report they get more done with less time and resources when using Asana Premium because its powerful features help them execute work successfully.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "right--image--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        "class": "lazyImage",
+        "data-srcset": "https://luna1.co/61c299.png 1x, https://luna1.co/6f851d.png 2x",
+        "data-src": "https://luna1.co/6f851d.png",
+        alt: "Person with productivity icons",
+        src: "https://luna1.co/6f851d.png",
+        srcset: "https://luna1.co/61c299.png 1x, https://luna1.co/6f851d.png 2x"
+      }))))));
     }
   }]);
 
@@ -2803,7 +2850,7 @@ function (_React$Component) {
         }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "task--input",
-          value: _this2.state.name,
+          value: task.name,
           onChange: function onChange(e) {
             return _this2.update(e.target.value);
           }

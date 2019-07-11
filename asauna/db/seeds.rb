@@ -29,9 +29,11 @@ ActiveRecord::Base.transaction do
     project3 = Project.create!(name: "Feature 3", workspace_id: workspace1.id)
 
     Task.destroy_all
-    task1 = Task.create!(name: "Build routes", description: "react", due_date: "2019-07-18", workspace_id: workspace1.id)
-    task2 = Task.create!(name: "Build db", description: "mongo", due_date: "2019-07-19", workspace_id: workspace1.id)
-    task3 = Task.create!(name: "Write css", description: "design", due_date: "2019-07-20", workspace_id: workspace1.id)
+    task1 = Task.create!(name: "How to fetch tasks in projects", description: "react", due_date: "2019-07-18", workspace_id: workspace1.id)
+    task2 = Task.create!(name: "How to set state while typing(onchange)", description: "mongo", due_date: "2019-07-19", workspace_id: workspace1.id)
+    task3 = Task.create!(name: "how to separate each taskname. edits all if state", description: "design", due_date: "2019-07-20", workspace_id: workspace1.id)
+    task4 = Task.create!(name: "Component", description: "backend", due_date: "2019-07-20", workspace_id: workspace1.id, project_id: project1.id)
+    task5 = Task.create!(name: "Fix life cycle methods", description: "refactor", due_date: "2019-07-20", workspace_id: workspace1.id, project_id: project1.id)
 
     WorkspaceUser.destroy_all
     join1 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace1.id)
