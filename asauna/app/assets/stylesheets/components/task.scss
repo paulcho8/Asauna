@@ -92,18 +92,28 @@
     height: 34px;
 }
 
-.check--button {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 50%;
-    fill: #848f99;
-    height: 20px;
-    width: 20px;
-    margin: 0 10px 0 0;
-    background: #fff;
-    border: 1px solid;
-    color: #848f99;
+// .check--button {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-around;
+//     border-radius: 50%;
+//     fill: #848f99;
+//     height: 20px;
+//     width: 20px;
+//     margin: 0 10px 0 0;
+//     background: #fff;
+//     border: 1px solid;
+//     color: #848f99;
+// }
+
+.done--check {
+    font-size: 15px;
+    color: #acb1b3;
+    cursor: pointer;
+}
+
+.done--check:hover {
+    color: #91b5f8;
 }
 
 .task--input {

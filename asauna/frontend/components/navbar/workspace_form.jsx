@@ -10,9 +10,6 @@ class WorkspaceForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentWillUnmount() {
-    //     this.props.removeErrors();
-    // }
 
     update(field) {
         return e => this.setState({
@@ -32,11 +29,15 @@ class WorkspaceForm extends React.Component {
 
 
     render() {
+        // if (this.state === null) return null;
+        debugger
         return (
             <div className="modal--container">
                 <div className="modal--child">
                     <div className="modal--formContainer">
-                        <div className="modal--formTitle">{this.props.formType}</div>
+                        <div className="modal--formTitle">{this.props.formType}
+                            <i className="fas fa-times" onClick={this.props.closeModal}></i>
+                        </div>
                         <div className="modal--formSubContainer">
                             <form onSubmit={this.handleSubmit} className="modal--form">
                                 <div className="modal--form--table">

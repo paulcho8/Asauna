@@ -48,12 +48,6 @@ class Workspace extends React.Component {
             )
         })
 
-        // window.location.reload()
-        // const refresh = window.localStorage.getItem('refresh');
-        // if (refresh === null) {
-        //     window.location.reload();
-        //     window.localStorage.setItem('refresh', "1");
-        // }
 
         return (
             <div className="workspace--container">

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { updateWorkspace } from '../../actions/workspace_actions';
-import { fetchWorkspace } from '../../actions/workspace_actions';
+import { fetchWorkspace, fetchWorkspaces } from '../../actions/workspace_actions';
 import WorkspaceForm from './workspace_form';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
     const urlParts = ownProps.location.pathname.split("/")
@@ -19,16 +20,20 @@ const mapDispatchToProps = dispatch => ({
     fetchWorkspace: (id) => dispatch(fetchWorkspace(id)),
     action: (workspace) => dispatch(updateWorkspace(workspace)),
     openModal: (modal) => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    fetchWorkspaces: () => dispatch(fetchWorkspaces())
 });
 
 class EditWorkspaceForm extends React.Component {
     componentDidMount() {
-        const workspaceId = this.props.workspaceId
-        this.props.fetchWorkspace(workspaceId);
+        // const workspaceId = this.props.location.pathname.includes("tasks") ? this.props.location.pathname.split("/")[2] : this.props.match.params.workspaceId
+        const workspaceId = this.props.match.params.workspaceId
+        this.props.fetchWorkspace(workspaceId)
+        this.props.fetchWorkspaces();
     }
 
     render() {
+        debugger
         const { action, formType, workspace, closeModal } = this.props;
         return (
             <WorkspaceForm
@@ -44,4 +49,4 @@ class EditWorkspaceForm extends React.Component {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(EditWorkspaceForm);
+)(withRouter(EditWorkspaceForm));

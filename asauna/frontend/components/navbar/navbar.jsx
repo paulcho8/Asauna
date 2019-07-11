@@ -57,13 +57,9 @@ class Navbar extends React.Component {
         if (this.props.currentUser) {
             let initials = this.props.currentUser.name.split(' ').map(word => (word[0])).join('')
             // let workspaceName = this.props.workspaces[this.props.match.params.workspaceId].name
-            // debugger
             return(
            
             <div className="Topbar--container">
-                {/* <div className="Topbar--left">
-                    <h1 className="Topbar--header"></h1>
-                </div> */}
                 <div className="Topbar--right">
                     <div className="Avatar Avatar--small Avatar--color1 Topbar--button" onClick={ this.showDropdown }>{initials}</div>
                 </div>
@@ -93,7 +89,9 @@ class Navbar extends React.Component {
                             <div className="filler"></div>
                             &nbsp;
                             &nbsp;
-                            Log Out
+                            <div>
+                                Log Out
+                            </div>
                         </span>
                     </ul>
                 ) : null

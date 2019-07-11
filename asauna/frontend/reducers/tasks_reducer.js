@@ -9,8 +9,8 @@ const tasksReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_TASKS:
-            return Object.assign({}, state, action.tasks )
-            // return action.tasks
+            // return Object.assign({}, state, action.tasks )
+            return action.tasks
         case RECEIVE_TASK:
             return Object.assign({}, state, { [action.task.id]: action.task })
         case REMOVE_TASK:

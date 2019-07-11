@@ -25,7 +25,7 @@ function Modal({ isOpen, modalType, closeModal, location, history }) {
             return null;
     }
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" onClick={closeModal} data-backdrop="static" data-keyboard="false">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>

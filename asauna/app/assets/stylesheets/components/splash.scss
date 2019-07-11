@@ -1,5 +1,6 @@
 
 .splash--header {
+    padding-top: 10px;
     width: 100%;
     display: block;
     background-color: #222b37;
@@ -61,8 +62,6 @@ a.splash--session {
     flex: 0 1 auto;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: -16px;
-    margin-right: -16px;
     align-content: center;
 }
 
