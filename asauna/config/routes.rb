@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :workspaces, only: [:show, :create, :update, :index] do 
       resources :projects, only: [:index, :create]
+      resources :tasks, only: [:index, :create]
     end
     resources :projects, only: [:show, :update, :destroy]
+    resources :tasks, only: [:show, :update, :destroy]
   end
 end

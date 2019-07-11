@@ -49,7 +49,7 @@ class Sidebar extends React.Component {
 
             <div className= "shamelessPlug">
                 <a href="https://www.linkedin.com/in/paul-cho-26809a129" target="_blank">
-                    <i class="fab fa-linkedin"></i>
+                    <i className="fab fa-linkedin"></i>
                 </a>
             </div>
         </div>

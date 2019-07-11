@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 // import * as thunkActions from './actions/workspace_actions';
-import * as thunkAction from './actions/project_actions';
+import * as thunkAction from './actions/task_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    window.fetchProjects = thunkAction.fetchProjects
-    window.fetchProject = thunkAction.fetchProject
-    window.createProject = thunkAction.createProject
-    window.updateProject = thunkAction.updateProject
-    window.deleteProject = thunkAction.deleteProject
+    window.fetchTasks = thunkAction.fetchTasks
+    window.fetchTask = thunkAction.fetchTask
+    window.createTask = thunkAction.createTask
+    window.updateTask = thunkAction.updateTask
+    window.deleteTask = thunkAction.deleteTask
 
     window.getState = store.getState
     window.dispatch = store.dispatch

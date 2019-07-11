@@ -28,6 +28,11 @@ ActiveRecord::Base.transaction do
     project2 = Project.create!(name: "Feature 2", workspace_id: workspace1.id)
     project3 = Project.create!(name: "Feature 3", workspace_id: workspace1.id)
 
+    Task.destroy_all
+    task1 = Task.create!(name: "Build routes", description: "react", due_date: "2019-07-18", workspace_id: workspace1.id)
+    task2 = Task.create!(name: "Build db", description: "mongo", due_date: "2019-07-19", workspace_id: workspace1.id)
+    task3 = Task.create!(name: "Write css", description: "design", due_date: "2019-07-20", workspace_id: workspace1.id)
+
     WorkspaceUser.destroy_all
     join1 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace1.id)
     join2 = WorkspaceUser.create!(user_id: user2.id, workspace_id: workspace2.id)
