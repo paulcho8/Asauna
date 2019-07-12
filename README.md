@@ -28,7 +28,8 @@ __Clone of Asana, a project and task management webapp.__
 ## Deleting task animation
 
 ### The Code
-```handleRemove(e) {
+```
+handleRemove(e) {
     if (e.target.classList[1] === "fa-check-circle") {
         e.target.classList.add("done--check-fade")
         let target = e.currentTarget;
@@ -46,10 +47,12 @@ __Clone of Asana, a project and task management webapp.__
         }, 1500);
     }
 }
+```
 
 ### The CSS
 
-``.complete--task {
+```
+.complete--task {
     background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, 
     rgba(255, 82, 99, 0.8) 51%, rgba(255, 115, 129, 0.8) 60%, 
     rgba(252, 189, 1, 0.8) 80%, rgba(0,0,0,0) 100%);
@@ -57,6 +60,7 @@ __Clone of Asana, a project and task management webapp.__
     background-position: 230%;
     min-height: initial;
 }
+```
 
 
 ## Deployment Instructions
