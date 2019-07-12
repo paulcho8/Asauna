@@ -17,23 +17,27 @@ ActiveRecord::Base.transaction do
     user4 = User.create!(name: "Kobe Bryant", email: "kbryant@asauna.com", password: "password")
 
     Workspace.destroy_all
-    workspace1 = Workspace.create!(name: "Engineering", description: "Frontend Team")
+    workspace1 = Workspace.create!(name: "Engineering", description: "San Francisco Team")
     workspace2 = Workspace.create!(name: "Marketing", description: "San Francisco Team")
     workspace3 = Workspace.create!(name: "Human Resources", description: "Human Resources")
     workspace4 = Workspace.create!(name: "Business Development", description: "Business Development")
     workspace5 = Workspace.create!(name: "Customer Service", description: "Customer Service")
 
     Project.destroy_all
-    project1 = Project.create!(name: "Feature 1", workspace_id: workspace1.id)
-    project2 = Project.create!(name: "Feature 2", workspace_id: workspace1.id)
-    project3 = Project.create!(name: "Feature 3", workspace_id: workspace1.id)
+    project1 = Project.create!(name: "Backend Route Project", workspace_id: workspace1.id)
+    project2 = Project.create!(name: "Refactor Frontend Project", workspace_id: workspace1.id)
+    project3 = Project.create!(name: "Redesign Project", workspace_id: workspace1.id)
 
     Task.destroy_all
-    task1 = Task.create!(name: "How to fetch tasks in projects", description: "react", due_date: "2019-07-18", workspace_id: workspace1.id)
-    task2 = Task.create!(name: "How to set state while typing(onchange)", description: "mongo", due_date: "2019-07-19", workspace_id: workspace1.id)
-    task3 = Task.create!(name: "how to separate each taskname. edits all if state", description: "design", due_date: "2019-07-20", workspace_id: workspace1.id)
-    task4 = Task.create!(name: "Component", description: "backend", due_date: "2019-07-20", workspace_id: workspace1.id, project_id: project1.id)
-    task5 = Task.create!(name: "Fix life cycle methods", description: "refactor", due_date: "2019-07-20", workspace_id: workspace1.id, project_id: project1.id)
+    task1 = Task.create!(name: "Meeting with John at 9:00AM", description: "react", workspace_id: workspace1.id)
+    task2 = Task.create!(name: "Submit progress report at 3:00PM", description: "mongo", workspace_id: workspace1.id)
+    task3 = Task.create!(name: "Interview at 3:30PM", description: "design", workspace_id: workspace1.id)
+    task4 = Task.create!(name: "Write a custom route", description: "backend", workspace_id: workspace1.id, project_id: project1.id)
+    task5 = Task.create!(name: "Have columns remember order", description: "refactor", workspace_id: workspace1.id, project_id: project1.id)
+    task5 = Task.create!(name: "Implement AWS", description: "refactor", workspace_id: workspace1.id, project_id: project1.id)
+    task5 = Task.create!(name: "Implement Modal library", description: "refactor", workspace_id: workspace1.id, project_id: project2.id)
+    task5 = Task.create!(name: "Refactor routes and redirects", description: "refactor", workspace_id: workspace1.id, project_id: project2.id)
+    task5 = Task.create!(name: "Redo splash page", description: "refactor", workspace_id: workspace1.id, project_id: project3.id)
 
     WorkspaceUser.destroy_all
     join1 = WorkspaceUser.create!(user_id: user1.id, workspace_id: workspace1.id)

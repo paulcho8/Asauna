@@ -67,6 +67,22 @@
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
     min-height: 34px;
+    transition: all 500ms ease-in-out;
+    background-position: 300%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.complete--task {
+    background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(255, 82, 99, 0.8) 51%, rgba(255, 115, 129, 0.8) 60%, rgba(252, 189, 1, 0.8) 80%, rgba(0,0,0,0) 100%);
+    background-size: 300%;
+    background-position: 230%;
+    min-height: initial;
+}
+
+.complete--task-fade {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .tasks--index--row--main {
@@ -92,34 +108,26 @@
     height: 34px;
 }
 
-// .check--button {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-around;
-//     border-radius: 50%;
-//     fill: #848f99;
-//     height: 20px;
-//     width: 20px;
-//     margin: 0 10px 0 0;
-//     background: #fff;
-//     border: 1px solid;
-//     color: #848f99;
-// }
-
 .done--check {
-    font-size: 15px;
-    color: #acb1b3;
+    font-size: 23px;
+    color: #c4c4c4;
     cursor: pointer;
+    margin-right: 10px;
+}
+
+.done--check-fade {
+    color: transparent;
 }
 
 .done--check:hover {
-    color: #91b5f8;
+    color: #77f577;
+    transition: ease-in 100ms;
 }
 
 .task--input {
     background-color: transparent;
     color: #151b26;
-    height: 16px;
+    height: 100%;
     padding: 0px;
     resize: none;
     display: flex;
@@ -129,4 +137,8 @@
     width: 100%;
     outline: none;
     cursor: pointer;
+    font-size: 100%;
+
 }
+
+
