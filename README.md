@@ -28,11 +28,36 @@ __Clone of Asana, a project and task management webapp.__
 ## Deleting task animation
 
 ### The Code
-<img width="564" alt="Screen Shot 2019-07-12 at 11 02 02 AM" src="https://user-images.githubusercontent.com/49211034/61148840-87aeb680-a494-11e9-9228-31eaf8027dad.png">
+```handleRemove(e) {
+    if (e.target.classList[1] === "fa-check-circle") {
+        e.target.classList.add("done--check-fade")
+        let target = e.currentTarget;
+        target.classList.add("complete--task");
+
+        setTimeout(() => {
+            target.classList.add("complete--task-fade");
+        }, 750);
+
+        setTimeout(() => {
+            this.props.deleteTask(this.props.task.id)
+            .then(() => {
+                this.props.fetchTasks(this.props.match.params.workspaceId)
+            })
+        }, 1500);
+    }
+}
 
 ### The CSS
 
-<img width="588" alt="Screen Shot 2019-07-12 at 11 04 28 AM" src="https://user-images.githubusercontent.com/49211034/61148973-d78d7d80-a494-11e9-8111-f8622e64a13d.png">
+``.complete--task {
+    background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, 
+    rgba(255, 82, 99, 0.8) 51%, rgba(255, 115, 129, 0.8) 60%, 
+    rgba(252, 189, 1, 0.8) 80%, rgba(0,0,0,0) 100%);
+    background-size: 300%;
+    background-position: 230%;
+    min-height: initial;
+}
+
 
 ## Deployment Instructions
 
