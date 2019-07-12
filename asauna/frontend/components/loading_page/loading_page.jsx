@@ -57,7 +57,7 @@ class LoadingPage extends React.Component {
         }
 
         return (
-            <div>
+            <div className="loading--container">
                 <div className="spinner">
                     <div className="bounce1" style={stylesObj1}></div>
                     <div className="bounce2" style={stylesObj2}></div>

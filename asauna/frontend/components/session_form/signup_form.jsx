@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
 			<div className="dialog">
 				<div className="dialog--header">
 					<i className="fas fa-fire"></i> 
-					<div className="session--logo">asauna</div>
+					<Link to="/" className="session-link"><div className="session--logo">asauna</div></Link>
 				</div>
 				<div className="dialog--container">
 					<div className="dialog--content">

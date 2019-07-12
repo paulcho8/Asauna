@@ -59,7 +59,6 @@ class ProjectShow extends React.Component {
                         workspace={workspace}
                     />
                     <div className="tasks--main--container">
-                        <Navbar />
                         <div className="Topbar--header">
                             <span className="header--name">{projectName}</span>
                             <button onClick={this.handleRemove} className="buttonView buttonView--default buttonView--primary buttonView--large button-submit">Delete Project</button>

@@ -95,8 +95,8 @@
 
 
 .loadinglogo {
-  position: absolute;
-  bottom: 200px;
+  padding-top: 150px;
+  vertical-align: bottom;
   width: 100%;
   margin: auto;
   text-align: center;
@@ -106,8 +106,8 @@
 
 .spinner {
   margin: 350px auto 0;
-//   width: 70px;
   text-align: center;
+  vertical-align: center;
 }
 
 .spinner div {
@@ -145,4 +145,8 @@
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+
+.loading--container {
+  display: block;
 }

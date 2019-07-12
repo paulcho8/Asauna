@@ -1095,7 +1095,9 @@ function (_React$Component) {
       var stylesObj3 = {
         background: "rgba(252, 189, 1, 0.9)"
       };
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "loading--container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "spinner"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bounce1",
@@ -2080,7 +2082,7 @@ function (_React$Component) {
         workspace: workspace
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--main--container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Topbar--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "header--name"
@@ -2388,9 +2390,12 @@ function (_React$Component) {
         className: "dialog--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-fire"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
+        className: "session-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session--logo"
-      }, "asauna")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "asauna"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dialog--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dialog--content"
@@ -2536,9 +2541,12 @@ function (_React$Component) {
         className: "dialog--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-fire"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/",
+        className: "session-link"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session--logo"
-      }, "asauna")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "asauna"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dialog--container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dialog--content"
