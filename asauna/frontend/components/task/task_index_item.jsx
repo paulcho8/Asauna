@@ -21,7 +21,6 @@ class TaskIndexItem extends React.Component {
     }
 
     handleRemove(e) {
-        
         if (e.target.classList[1] === "fa-check-circle") {
             e.target.classList.add("done--check-fade")
             let target = e.currentTarget;
