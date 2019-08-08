@@ -11,6 +11,7 @@ __Clone of Asana, a project and task management webapp.__
 ###### Rails backend & React/Redux frontend
 
 * Create, edit, and navigate to different workspaces.
+
 ![aYGm1XSQXC](https://user-images.githubusercontent.com/49211034/62726618-848fe300-b9cc-11e9-9e86-13a449eced9a.gif)
 
 * Simplify your team organization by creating separate workspaces for your projects.
