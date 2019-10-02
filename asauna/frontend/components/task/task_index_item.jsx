@@ -56,7 +56,7 @@ class TaskIndexItem extends React.Component {
                         <div className="done--check" >
                             <i className="fas fa-check-circle"></i>
                         </div>
-                        <input id="task" type="text" className="task--input" value={this.state.name} onChange={this.update("name")} />
+                        <input id="task" type="text" className="task--input" value={this.state.name} onChange={this.update("name")} autocomplete="off"/>
                     </form>
                 </div>
                 <div className="tasks--index--row--dueDate">

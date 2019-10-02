@@ -900,7 +900,9 @@ function (_React$Component) {
   _createClass(Splash, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "splash--header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash--subheader"
@@ -1492,9 +1494,11 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "Topbar--right"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "Avatar Avatar--small Avatar--color1 Topbar--button",
+          className: "topbar-cog",
           onClick: this.showDropdown
-        }, initials)), this.state.displayBar ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-cog"
+        }))), this.state.displayBar ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "menuBar"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "menuItem--content--outer"
@@ -3083,7 +3087,8 @@ function (_React$Component) {
         type: "text",
         className: "task--input",
         value: this.state.name,
-        onChange: this.update("name")
+        onChange: this.update("name"),
+        autocomplete: "off"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tasks--index--row--dueDate"
       }, this.state.due_date));
@@ -46996,7 +47001,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

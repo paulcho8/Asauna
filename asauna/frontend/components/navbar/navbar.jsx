@@ -61,7 +61,7 @@ class Navbar extends React.Component {
            
             <div className="Topbar--container">
                 <div className="Topbar--right">
-                    <div className="Avatar Avatar--small Avatar--color1 Topbar--button" onClick={ this.showDropdown }>{initials}</div>
+                        <div className="topbar-cog" onClick={this.showDropdown}><i className="fas fa-cog"></i></div>
                 </div>
                 { this.state.displayBar ? (
                     <ul className="menuBar">
